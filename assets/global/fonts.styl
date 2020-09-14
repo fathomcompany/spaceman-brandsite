@@ -1,42 +1,36 @@
 $font_path = '~@/assets/fonts/'
 
-// @font-face {
-//   font-family: 'regular';
-//   src: url($font_path + 'regular.woff2') format('woff2'),
-//       url($font_path + 'regular.woff') format('woff');
-//   font-weight: 300;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'medium';
+  src: url($font_path + 'VisbyCF-Medium.woff2') format('woff2'),
+      url($font_path + 'VisbyCF-Medium.woff') format('woff'),
+      url($font_path + 'VisbyCF-Medium.eot') format('eot');
+  font-weight: 500;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: 'medium';
-//   src: url($font_path + 'medium.woff2') format('woff2'),
-//       url($font_path + 'medium.woff') format('woff');
-//   font-weight: 300;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: 'bold';
+  src: url($font_path + 'VisbyCF-Bold.woff2') format('woff2'),
+      url($font_path + 'VisbyCF-Bold.woff') format('woff'),
+      url($font_path + 'VisbyCF-Bold.eot') format('eot');
+  font-weight: 300;
+  font-style: 600;
+}
 
-// @font-face {
-//   font-family: 'book';
-//   src: url($font_path + 'book.woff2') format('woff2'),
-//       url($font_path + 'book.woff') format('woff');
-//   font-weight: 300;
-//   font-style: normal;
-// }
+medium()
+  font-weight 500
+  font-family 'medium', Arial, sans-serif
 
-book()
-  // font-weight normal
-  // font-family 'book', Arial, sans-serif
+  *
+    font-family inherit
 
-  // *
-  //   font-family inherit
+bold()
+  font-weight normal
+  font-family 'bold', Arial, sans-serif
 
-regular()
-  // font-weight normal
-  // font-family 'regular', Arial, sans-serif
-
-  // *
-  //   font-family inherit
+  *
+    font-family inherit
 
 medium()
   // font-weight normal
@@ -45,9 +39,3 @@ medium()
   // *
   //   font-family inherit
 
-eyebrow()
-  // font-family 'medium', Arial, sans-serif
-  // @apply uppercase tracking-widest text-sm
-
-  // @media(min-width tablet)
-  //   @apply text-base
