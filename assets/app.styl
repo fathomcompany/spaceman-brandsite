@@ -1,0 +1,45 @@
+@require './global/**'
+
+// Global
+body
+  color off-black
+  font-family 'regular', sans-serif
+  @apply antialiased box-border;
+
+video
+  width 100%
+
+.block-base
+  @apply relative
+
+/**
+ * Adjacent block overrides
+ **/
+.LogoGarden + .WorkListing,
+.WorkListing + .StatementCopy,
+.Quote + .ScatteredImages,
+.ScatteredImages + .Related
+  .no-adjacent-top-padding
+    padding-top 0 !important
+
+
+.MarqueeRadial.bg-black + .WorkListing
+  .no-adjacent-top-padding
+    fluid(padding-top, 100, 0)
+
+// .GlobalFooter .Blocks >
+//   &:first-child
+//     &.StatementCopy
+//       .no-adjacent-top-padding
+//         padding-top 0 !important
+
+
+/**
+ * Vue Visual tweaks
+ */
+// Make sure video covers entire container
+.vv-fill-asset
+  object-fit cover
+  height 100% !important
+  width @height
+

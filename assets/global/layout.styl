@@ -1,0 +1,81 @@
+/**
+ * CONTENT CONTAINERS
+ */
+.content
+  max-width content-max-w
+  @apply mx-auto
+
+  @media(min-width desktop + 1px)
+    max-width calc(60% + 200px)
+
+.content-wide
+  max-width content-max-w + 200px
+  @apply mx-auto
+
+  @media(min-width desktop + 1px)
+    max-width calc(60% + 500px)
+
+.content-narrow
+  max-width narrow-max-w
+  @apply mx-auto
+
+  @media(min-width desktop + 1px)
+    max-width 60%
+
+.content-scaled
+  @extend .content-narrow
+
+  @media(min-width tablet-landscape + 1px)
+    max-width 65vw
+
+    @media(max-width large)
+      max-width 70vw
+
+/**
+ * HORIZONTAL GUTTERS
+ */
+.h-gutter
+  fluid padding-left, 100, 30
+  fluid padding-right, 100, 30
+
+
+/**
+ * VERTCAL GUTTERS
+ */
+.v-gutter-huge
+  fluid padding-top, 230, 100
+  fluid padding-bottom, 230, 100
+
+.top-gutter-huge
+  fluid padding-top, 230, 100
+
+.bottom-gutter-huge
+  fluid padding-bottom, 230, 100
+
+.bottom-gutter-huge-margin
+  fluid margin-bottom, 230, 100
+
+.v-gutter
+  fluid padding-top, 140, 80
+  fluid padding-bottom, 140, 80
+
+.top-gutter
+  fluid padding-top, 140, 80
+
+.bottom-gutter
+  fluid padding-bottom, 140, 80
+
+
+.mobile-marquee
+  @media(max-width tablet - 1px)
+    min-height 100vh
+
+    &.shorter
+      min-height 85vh
+
+.clearfix
+  clearfix()
+
+.no-top-padding-mobile
+  @media(max-width tablet - 1px)
+    padding-top 0 !important

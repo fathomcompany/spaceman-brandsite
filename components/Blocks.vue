@@ -1,0 +1,98 @@
+<!--
+
+Blocks
+
+Dynamic components that make up a content page
+
+-->
+
+<template lang="pug">
+.Blocks: component(
+	v-for='(block, index) in createdBlocks'
+	:is='block.sys.contentType.sys.id'
+	:key='block.sys.id + index'
+	:block='block')
+
+</template>
+
+<script>
+import get from 'lodash.get'
+
+// List of block components
+// Key is the API ID of the content type
+// Value is the Vue component to render for this block type
+const blocks = {}
+
+// Export just the list of keys
+export const keys = Object.keys(blocks)
+
+export default {
+  name: 'Blocks',
+
+  // Block components
+  components: {
+    ...blocks
+  },
+
+  props: {
+    blocks: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
+
+  computed: {
+    // Filter the blocks to those that have been defined.  To fix errors in dev
+    // environments after content model is created but commits with the new
+    //  block component have not been pulled down.
+    createdBlocks() {
+      return this.blocks.filter((block) => {
+        return keys.includes(block.sys.contentType.sys.id)
+      })
+    }
+  },
+
+  mounted() {}
+}
+
+/**
+ * Shared mixin for all block components
+ */
+export const BlockMixin = {
+  props: {
+    block: {
+      type: Object,
+      required: true
+    }
+  }
+}
+
+/**
+ * Async load block data, if they need to hydrate server-side
+ */
+export const loadBlockData = (context, pageBlocks = [], extra) => {
+  Promise.all(
+    pageBlocks.map((block) => {
+      // Get the block type id
+      const type = get(block, 'sys.contentType.sys.id')
+
+      // Check for an async function
+      if (Object.prototype.hasOwnProperty.call(blocks, type)) {
+        const func = get(blocks[type], 'asyncData')
+        if (func) {
+          return func(context, block, extra)
+        }
+      }
+
+      Promise.resolve()
+    })
+  )
+}
+</script>
+
+<style lang="stylus" scoped>
+.Blocks
+  //
+</style>

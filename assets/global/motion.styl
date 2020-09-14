@@ -1,0 +1,32 @@
+/**
+ * Spin element in a full cricle
+ */
+@keyframes rotate-360
+  from
+    transform rotate(360deg)
+
+  to
+    transform rotate(0)
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.fade-enter-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.vv-visual.scale-in-image
+  .vv-image
+    default-transition transform opacity, 1.4s, smooth-in-out, 0.3s
+    opacity 0
+    transform scale(1.2)
+
+  .in-viewport &
+    .vv-image
+      transform none
+      opacity 1

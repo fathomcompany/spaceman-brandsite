@@ -1,0 +1,21 @@
+/**
+ * TEXT LINKS
+ */
+.text-link
+  @apply underline text-xl inline-block
+  medium()
+
+  +active()
+    opacity 0.5
+
+@screen md
+  .text-link
+    @apply text-mxl
+
+
+a
+  default-transition opacity, time-reg, balanced
+
+  &:not(.nuxt-link-active)
+    +whenActive()
+      opacity 0.6
