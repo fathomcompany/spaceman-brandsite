@@ -1,6 +1,5 @@
 // import Vuex from 'vuex'
 import pathify from 'vuex-pathify'
-// import nav from './modules/nav'
 import cache from './modules/cache'
 import settings from './modules/settings'
 

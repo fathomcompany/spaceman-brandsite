@@ -26,7 +26,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Multi-dimensional concept, media creation and strategy for premium brands and entertainment networks.'
+          'We are a media agency that makes motion content with irresistible gravity.'
       },
       {
         hid: 'og:site_name',
@@ -132,7 +132,7 @@ export default {
     meta: {
       name: 'SPACEMAN',
       description:
-        'Multi-dimensional concept, media creation and strategy for premium brands and entertainment networks.',
+        'We are a media agency that makes motion content with irresistible gravity.',
       author: 'SPACEMAN Media'
     }
   },

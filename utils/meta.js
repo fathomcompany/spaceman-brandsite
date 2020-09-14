@@ -8,7 +8,7 @@ export function makeMeta(meta, defaults = {}) {
   const description = get(
     meta,
     'description',
-    'Multi-dimensional concept, media creation and strategy for premium brands and entertainment networks.'
+    'We are a media agency that makes motion content with irresistible gravity.'
   )
 
   if (!hasDescription) {

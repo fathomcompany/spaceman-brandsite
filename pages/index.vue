@@ -2,8 +2,28 @@
 .page(
   style="margin-top: 80px;"
 )
-  //- Blocks(:blocks="blocks")
   h1 {{ page.title }}
+
+  HomeMarquee
+
+  GradientHeading
+
+  Reel
+
+  DigitalCampaigns
+
+  ImmersiveExperiences
+
+  MobileFirstContent
+
+  HeadingWithCopy
+  Slider
+
+  LogoGarden
+
+  HeadingWithImage
+
+  ContactForm
 
 </template>
 
@@ -11,10 +31,33 @@
 import { parse, stringify } from 'flatted/cjs'
 import { notFound } from '~/utils/errors'
 import { makeMeta } from '~/utils/meta'
-import Blocks from '~/components/Blocks'
+
+import ContactForm from '~/components/blocks/ContactForm'
+import LogoGarden from '~/components/blocks/LogoGarden'
+import HeadingWithImage from '~/components/blocks/HeadingWithImage'
+import Slider from '~/components/blocks/Slider'
+import HeadingWithCopy from '~/components/blocks/HeadingWithCopy'
+import HomeMarquee from '~/components/blocks/HomeMarquee'
+import GradientHeading from '~/components/blocks/GradientHeading'
+import Reel from '~/components/blocks/Reel'
+import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
+import ImmersiveExperiences from '~/components/blocks/ImmersiveExperiences'
+import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 
 export default {
-  components: { Blocks },
+  components: {
+    HomeMarquee,
+    ContactForm,
+    LogoGarden,
+    HeadingWithImage,
+    Slider,
+    HeadingWithCopy,
+    GradientHeading,
+    Reel,
+    DigitalCampaigns,
+    ImmersiveExperiences,
+    MobileFirstContent
+  },
 
   transition: {
     name: 'fade',
@@ -65,7 +108,7 @@ export default {
   },
 
   head() {
-    return makeMeta(this.page.meta, {
+    return makeMeta(this.page.seo, {
       title: this.page.title,
       canonical: `${process.env.BASE_URL}${
         this.page.slug === 'homepage' ? '' : `/${this.page.slug}/`
