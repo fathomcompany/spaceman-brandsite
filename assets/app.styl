@@ -4,7 +4,7 @@
 body
   color white
   background black
-  font-family 'medium', Arial, sans-serif
+  font-family 'bold', Arial, sans-serif
   @apply antialiased box-border;
 
 video
@@ -16,23 +16,6 @@ video
 /**
  * Adjacent block overrides
  **/
-.LogoGarden + .WorkListing,
-.WorkListing + .StatementCopy,
-.Quote + .ScatteredImages,
-.ScatteredImages + .Related
-  .no-adjacent-top-padding
-    padding-top 0 !important
-
-
-.MarqueeRadial.bg-black + .WorkListing
-  .no-adjacent-top-padding
-    fluid(padding-top, 100, 0)
-
-// .GlobalFooter .Blocks >
-//   &:first-child
-//     &.StatementCopy
-//       .no-adjacent-top-padding
-//         padding-top 0 !important
 
 
 /**

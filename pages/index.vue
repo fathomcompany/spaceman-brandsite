@@ -2,8 +2,6 @@
 .page(
   style="margin-top: 80px;"
 )
-  h1 {{ page.title }}
-
   HomeMarquee
 
   GradientHeading
@@ -67,10 +65,10 @@ export default {
   async asyncData(context) {
     const { error, app, store } = context
 
-    // // Get settings, if we're in SPA mode
-    // if (process.env.NUXT_MODE === 'spa') {
-    //   await store.dispatch('settings/fetch')
-    // }
+    // Get settings, if we're in SPA mode
+    if (process.env.NUXT_MODE === 'spa') {
+      await store.dispatch('settings/fetch')
+    }
 
     const path = '/'
 

@@ -98,7 +98,7 @@ export default {
       }
     ],
 
-    // Load SVGs fro massets folder
+    // Load SVGs from assets folder
     '@nuxtjs/svg',
 
     // Create Netlify redirects dynamically

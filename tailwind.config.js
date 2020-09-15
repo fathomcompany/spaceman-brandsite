@@ -8,6 +8,10 @@
 const { screens } = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true
+  },
   theme: {
     container: {
       center: true
@@ -21,7 +25,13 @@ module.exports = {
         widest: '0.2em'
       },
       colors: {
-        grey: '#f7f7fd'
+        offblack: '#2e2e2e',
+        grey: '#f7f7fd',
+        purple: '#cc01f1',
+        red: '#fe048f',
+        pink: '#fe01a4',
+        green: '#6cd0b3',
+        lime: '#90b392'
       },
       inset: {
         m1: '-1px'

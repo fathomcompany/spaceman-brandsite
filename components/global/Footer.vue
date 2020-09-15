@@ -5,18 +5,49 @@ GlobalFooter
 -->
 
 <template lang="pug">
-footer.GlobalFooter Footer
+footer.GlobalFooter.py-10.px-16.flex.justify-between
+  span.copywright.max-w-70p {{ copyright }}
+
+  span.socials.whitespace-no-wrap
+    a(
+      v-if="settings.footerFacebookUrl"
+      :href="settings.footerFacebookUrl"
+      target="_blank" rel="noopener noreferrer"
+    )
+      FacebookIcon
+    a.ml-5(
+      v-if="settings.footerTwitterUrl"
+      :href="settings.footerTwitterUrl"
+      target="_blank" rel="noopener noreferrer"
+    )
+      TwitterIcon
+    a.ml-5(
+      v-if="settings.footerDribbbleUrl"
+      :href="settings.footerDribbbleUrl"
+      target="_blank" rel="noopener noreferrer"
+    )
+      DribbbleIcon
+    a.ml-5(
+      v-if="settings.footerPinterestUrl"
+      :href="settings.footerPinterestUrl"
+      target="_blank" rel="noopener noreferrer"
+    )
+      PinterestIcon
+
 </template>
 
 <script>
 import get from 'lodash.get'
 
-import Blocks from '~/components/Blocks'
+import FacebookIcon from '~/assets/svg/facebook.svg?inline'
+import TwitterIcon from '~/assets/svg/twitter.svg?inline'
+import DribbbleIcon from '~/assets/svg/dribbble.svg?inline'
+import PinterestIcon from '~/assets/svg/pinterest.svg?inline'
 
 export default {
   name: 'GlobalFooter',
 
-  components: { Blocks },
+  components: { FacebookIcon, TwitterIcon, DribbbleIcon, PinterestIcon },
 
   computed: {
     settings() {
@@ -24,12 +55,14 @@ export default {
       return settings
     },
 
-    blocks() {
-      return get(this.settings, 'blocks')
-    },
-
     year() {
       return new Date().getFullYear()
+    },
+
+    copyright() {
+      const copy = get(this.settings, 'footerCopyrightText')
+
+      return copy.replace('{year}', this.year)
     }
   }
 }
@@ -37,5 +70,12 @@ export default {
 
 <style lang="stylus" scoped>
 .GlobalFooter
-  //
+  background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+
+svg
+  width 19px
+  height 19px
+  display inline-block
+  path
+    fill theme('colors.offblack') !important
 </style>
