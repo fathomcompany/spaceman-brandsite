@@ -5,34 +5,36 @@ GlobalFooter
 -->
 
 <template lang="pug">
-footer.GlobalFooter.py-10.px-16.flex.justify-between
-  span.copywright.max-w-70p {{ copyright }}
+footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
 
-  span.socials.whitespace-no-wrap
-    a(
-      v-if="settings.footerFacebookUrl"
-      :href="settings.footerFacebookUrl"
-      target="_blank" rel="noopener noreferrer"
-    )
-      FacebookIcon
-    a.ml-5(
-      v-if="settings.footerTwitterUrl"
-      :href="settings.footerTwitterUrl"
-      target="_blank" rel="noopener noreferrer"
-    )
-      TwitterIcon
-    a.ml-5(
-      v-if="settings.footerDribbbleUrl"
-      :href="settings.footerDribbbleUrl"
-      target="_blank" rel="noopener noreferrer"
-    )
-      DribbbleIcon
-    a.ml-5(
-      v-if="settings.footerPinterestUrl"
-      :href="settings.footerPinterestUrl"
-      target="_blank" rel="noopener noreferrer"
-    )
-      PinterestIcon
+  .content.flex.justify-between.flex-col-reverse.md_flex-row
+    span.copywright.md_max-w-70p.mt-12.md_mt-0.text-sm {{ copyright }}
+
+    span.socials.whitespace-no-wrap
+      a(
+        v-if="settings.footerFacebookUrl"
+        :href="settings.footerFacebookUrl"
+        target="_blank" rel="noopener noreferrer"
+      )
+        FacebookIcon
+      a.ml-5(
+        v-if="settings.footerTwitterUrl"
+        :href="settings.footerTwitterUrl"
+        target="_blank" rel="noopener noreferrer"
+      )
+        TwitterIcon
+      a.ml-5(
+        v-if="settings.footerDribbbleUrl"
+        :href="settings.footerDribbbleUrl"
+        target="_blank" rel="noopener noreferrer"
+      )
+        DribbbleIcon
+      a.ml-5(
+        v-if="settings.footerPinterestUrl"
+        :href="settings.footerPinterestUrl"
+        target="_blank" rel="noopener noreferrer"
+      )
+        PinterestIcon
 
 </template>
 
@@ -72,10 +74,24 @@ export default {
 .GlobalFooter
   background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
+  @media(max-width tablet)
+    background-image radial-gradient(circle at -21% -25%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+
+a
+  +whenActive()
+    svg
+      path
+        fill white !important
+
 svg
   width 19px
   height 19px
   display inline-block
+
   path
     fill theme('colors.offblack') !important
+    default-transition fill, time-fast
+
+    @media(max-width tablet)
+      fill white !important
 </style>

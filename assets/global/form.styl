@@ -1,0 +1,26 @@
+input,
+textarea
+  border 1px solid rgba(white, 0.6)
+  default-transition border-color, time-reg
+  @apply w-full mb-6 p-3 rounded-sm outline-none appearance-none bg-transparent
+
+  +placeholder()
+    font-family 'medium'
+    color white
+    font-size 14px
+
+  &:focus
+    border-color white
+
+textarea
+  @apply min-h-sm
+
+button
+  border-radius 15px
+  background grey
+  min-width 150px
+  font-size 14px
+  @apply p-3
+
+label
+  @apply hidden
