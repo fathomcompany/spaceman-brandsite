@@ -34,10 +34,11 @@ import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 // Key is the API ID of the content type
 // Value is the Vue component to render for this block type
 const blocks = {
-  ContactForm,
   blockLogoGarden: LogoGarden,
+  blockProjectSlider: Slider,
+
+  ContactForm,
   HeadingWithImage,
-  Slider,
   HeadingWithCopy,
   HomeMarquee,
   GradientHeading,

@@ -15,7 +15,6 @@
   MobileFirstContent
 
   HeadingWithCopy
-  Slider
 
   Blocks(:blocks="blocks")
 
