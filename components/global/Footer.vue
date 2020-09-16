@@ -7,7 +7,7 @@ GlobalFooter
 <template lang="pug">
 footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
 
-  .content.flex.justify-between.flex-col-reverse.md_flex-row
+  .content-wide.flex.justify-between.flex-col-reverse.md_flex-row
     span.copywright.md_max-w-70p.mt-12.md_mt-0.text-sm {{ copyright }}
 
     span.socials.whitespace-no-wrap

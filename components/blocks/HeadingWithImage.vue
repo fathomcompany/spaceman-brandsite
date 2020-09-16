@@ -5,7 +5,7 @@ HeadingWithImage
 <template lang="pug">
 .HeadingWithImage.bg-cover.bg-center.h-gutter
   .content-wide.v-gutter-huge
-    h2.h1.leading-none Turnkey creative, production and post powered by our award-winning team.
+    h2.h1 Turnkey creative, production and post powered by our award-winning team.
 </template>
 
 <script>

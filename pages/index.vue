@@ -17,18 +17,22 @@
   HeadingWithCopy
   Slider
 
-  LogoGarden
+  Blocks(:blocks="blocks")
 
   HeadingWithImage
 
   ContactForm
 
+
 </template>
 
 <script>
 import { parse, stringify } from 'flatted/cjs'
+import get from 'lodash.get'
 import { notFound } from '~/utils/errors'
 import { makeMeta } from '~/utils/meta'
+
+import Blocks from '~/components/Blocks'
 
 import ContactForm from '~/components/blocks/ContactForm'
 import LogoGarden from '~/components/blocks/LogoGarden'
@@ -44,6 +48,7 @@ import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 
 export default {
   components: {
+    Blocks,
     HomeMarquee,
     ContactForm,
     LogoGarden,
@@ -101,7 +106,7 @@ export default {
     },
 
     blocks() {
-      return this.page.blocks
+      return get(this.page, 'blocks.content', [])
     }
   },
 
