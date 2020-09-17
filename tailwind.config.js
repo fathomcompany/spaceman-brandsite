@@ -24,6 +24,13 @@ module.exports = {
       letterSpacing: {
         widest: '0.2em'
       },
+      translate: {
+        minus50p: '-50%',
+        '50p': '-50%'
+      },
+      cursor: {
+        grab: 'grab'
+      },
       colors: {
         offblack: '#2e2e2e',
         grey: '#f7f7fd',
@@ -34,7 +41,8 @@ module.exports = {
         lime: '#90b392'
       },
       inset: {
-        m1: '-1px'
+        m1: '-1px',
+        '50p': '50%'
       },
       zIndex: {
         '1': '1',
