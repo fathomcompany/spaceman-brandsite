@@ -51,5 +51,7 @@ export default {
   aspect-ratio 1.4/1, false
 
 p
-  @apply mb-5
+  fluid font-size, 18, 16
+  @apply mb-5;
+  bold()
 </style>

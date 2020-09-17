@@ -20,9 +20,8 @@ import get from 'lodash.get'
 
 import ContactForm from '~/components/blocks/ContactForm'
 import LogoGarden from '~/components/blocks/LogoGarden'
-import HeadingWithImage from '~/components/blocks/HeadingWithImage'
+import HeadingContent from '~/components/blocks/HeadingContent'
 import Slider from '~/components/blocks/Slider'
-import HeadingWithCopy from '~/components/blocks/HeadingWithCopy'
 import HomeMarquee from '~/components/blocks/HomeMarquee'
 import GradientHeading from '~/components/blocks/GradientHeading'
 import Reel from '~/components/blocks/Reel'
@@ -36,10 +35,8 @@ import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 const blocks = {
   blockLogoGarden: LogoGarden,
   blockProjectSlider: Slider,
-
+  blockHeadingContent: HeadingContent,
   ContactForm,
-  HeadingWithImage,
-  HeadingWithCopy,
   HomeMarquee,
   GradientHeading,
   Reel,
