@@ -38,11 +38,12 @@ const blocks = {
   blockHeadingContent: HeadingContent,
   blockContactForm: ContactForm,
   blockMobileFirstContent: MobileFirstContent,
+  blockImmersiveExperiences: ImmersiveExperiences,
+
   HomeMarquee,
   GradientHeading,
   Reel,
-  DigitalCampaigns,
-  ImmersiveExperiences
+  DigitalCampaigns
 }
 
 // Export just the list of keys

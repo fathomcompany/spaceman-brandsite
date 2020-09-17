@@ -10,9 +10,6 @@
 
   DigitalCampaigns
 
-  ImmersiveExperiences
-
-
   Blocks(:blocks="blocks")
 
 </template>
@@ -29,7 +26,6 @@ import HomeMarquee from '~/components/blocks/HomeMarquee'
 import GradientHeading from '~/components/blocks/GradientHeading'
 import Reel from '~/components/blocks/Reel'
 import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
-import ImmersiveExperiences from '~/components/blocks/ImmersiveExperiences'
 
 export default {
   components: {
@@ -37,8 +33,7 @@ export default {
     HomeMarquee,
     GradientHeading,
     Reel,
-    DigitalCampaigns,
-    ImmersiveExperiences
+    DigitalCampaigns
   },
 
   transition: {

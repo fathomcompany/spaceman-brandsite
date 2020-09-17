@@ -29,12 +29,12 @@ export default {
 
   props: {
     image: {
-      type: Object,
+      type: [Object, String],
       default: () => null
     },
 
     mobileImage: {
-      type: Object,
+      type: [Object, String],
       default: () => null
     },
 
