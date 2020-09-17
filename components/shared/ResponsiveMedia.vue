@@ -7,6 +7,7 @@ ResponsiveMedia
   visual(
     ref="visual"
     background="cover"
+    :backgroundPosition="backgroundPosition"
     :image="imageSrc"
     :alt="imageAlt"
     :aspect="aspect"
@@ -55,6 +56,11 @@ export default {
     offset: {
       type: String,
       default: '-100px 0px'
+    },
+
+    backgroundPosition: {
+      type: String,
+      default: 'center center'
     }
   },
 

@@ -73,8 +73,7 @@ export default {
     formatting: {
       type: String,
       default: 'regular',
-      validator: (val) =>
-        ['regular', 'project', 'column', 'section'].includes(val)
+      validator: (val) => ['regular', 'contact'].includes(val)
     }
   },
 
@@ -94,8 +93,11 @@ export default {
   h1
     h1()
 
-  .h-wrapper  + .p-wrapper
-      @apply mt-4;
+  h2
+    h2()
+
+  h3
+    h3()
 
   p,
   .p-wrapper
@@ -105,14 +107,24 @@ export default {
       @apply hidden;
 
     &:not(:last-of-type)
-      @apply mb-12;
-
-    @media (max-width: tablet)
-      @apply w-full;
-
-      &:not(:last-of-type)
-        @apply mb-8;
+      @apply mb-5;
 
   h6
     @apply mb-6;
+
+
+  /**
+   REGULAR
+   */
+  &.format-regular
+    .h-wrapper  + .p-wrapper
+      @apply mt-4;
+
+  /**
+  CONTACT FORM
+   */
+  &.format-contact
+    p
+      fluid font-size, 18, 16
+      bold()
 </style>

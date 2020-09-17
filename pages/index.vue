@@ -12,12 +12,8 @@
 
   ImmersiveExperiences
 
-  MobileFirstContent
 
   Blocks(:blocks="blocks")
-
-  ContactForm
-
 
 </template>
 
@@ -29,28 +25,20 @@ import { makeMeta } from '~/utils/meta'
 
 import Blocks from '~/components/Blocks'
 
-import ContactForm from '~/components/blocks/ContactForm'
-import LogoGarden from '~/components/blocks/LogoGarden'
-import Slider from '~/components/blocks/Slider'
 import HomeMarquee from '~/components/blocks/HomeMarquee'
 import GradientHeading from '~/components/blocks/GradientHeading'
 import Reel from '~/components/blocks/Reel'
 import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
 import ImmersiveExperiences from '~/components/blocks/ImmersiveExperiences'
-import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 
 export default {
   components: {
     Blocks,
     HomeMarquee,
-    ContactForm,
-    LogoGarden,
-    Slider,
     GradientHeading,
     Reel,
     DigitalCampaigns,
-    ImmersiveExperiences,
-    MobileFirstContent
+    ImmersiveExperiences
   },
 
   transition: {

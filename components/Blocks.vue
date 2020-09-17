@@ -36,13 +36,13 @@ const blocks = {
   blockLogoGarden: LogoGarden,
   blockProjectSlider: Slider,
   blockHeadingContent: HeadingContent,
-  ContactForm,
+  blockContactForm: ContactForm,
+  blockMobileFirstContent: MobileFirstContent,
   HomeMarquee,
   GradientHeading,
   Reel,
   DigitalCampaigns,
-  ImmersiveExperiences,
-  MobileFirstContent
+  ImmersiveExperiences
 }
 
 // Export just the list of keys

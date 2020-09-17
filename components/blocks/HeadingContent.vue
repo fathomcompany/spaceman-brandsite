@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.HeadingContent
-  // background-image url('https://p76.f0.n0.cdn.getcloudapp.com/items/X6uNP0zv/Image%202020-09-15%20at%204.34.24%20PM.png?v=5a1ac2049067768b936cb34d039ad22c')
+.content-wide
+  .ContentfulRichText
+    max-width 1300px
 </style>
