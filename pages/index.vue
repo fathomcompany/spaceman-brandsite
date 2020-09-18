@@ -8,8 +8,6 @@
 
   Reel
 
-  DigitalCampaigns
-
   Blocks(:blocks="blocks")
 
 </template>
@@ -25,15 +23,13 @@ import Blocks from '~/components/Blocks'
 import HomeMarquee from '~/components/blocks/HomeMarquee'
 import GradientHeading from '~/components/blocks/GradientHeading'
 import Reel from '~/components/blocks/Reel'
-import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
 
 export default {
   components: {
     Blocks,
     HomeMarquee,
     GradientHeading,
-    Reel,
-    DigitalCampaigns
+    Reel
   },
 
   transition: {

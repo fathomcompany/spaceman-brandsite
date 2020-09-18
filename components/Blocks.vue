@@ -39,11 +39,11 @@ const blocks = {
   blockContactForm: ContactForm,
   blockMobileFirstContent: MobileFirstContent,
   blockImmersiveExperiences: ImmersiveExperiences,
+  blockCampaignDeviceScreens: DigitalCampaigns,
 
   HomeMarquee,
   GradientHeading,
-  Reel,
-  DigitalCampaigns
+  Reel
 }
 
 // Export just the list of keys
