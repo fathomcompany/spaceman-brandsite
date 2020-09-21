@@ -30,7 +30,6 @@ Reel
           video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
           background="cover"
           :loop="true"
-          autoplay
           :muted="true"
           :fill="true"
           @video-loaded="frameVideoReady = true"

@@ -88,6 +88,6 @@ export default {
     top 3%
     bottom 30%
     transform skewY(-33deg)
-    border-bottom-left-radius 40px
+    border-bottom-left-radius 15%
     overflow hidden
 </style>
