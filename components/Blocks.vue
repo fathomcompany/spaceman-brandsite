@@ -40,10 +40,10 @@ const blocks = {
   blockMobileFirstContent: MobileFirstContent,
   blockImmersiveExperiences: ImmersiveExperiences,
   blockCampaignDeviceScreens: DigitalCampaigns,
+  blockReel: Reel,
 
   HomeMarquee,
-  GradientHeading,
-  Reel
+  GradientHeading
 }
 
 // Export just the list of keys
