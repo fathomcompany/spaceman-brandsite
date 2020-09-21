@@ -4,8 +4,6 @@
 )
   HomeMarquee
 
-  GradientHeading
-
   Blocks(:blocks="blocks")
 
 </template>
@@ -19,13 +17,11 @@ import { makeMeta } from '~/utils/meta'
 import Blocks from '~/components/Blocks'
 
 import HomeMarquee from '~/components/blocks/HomeMarquee'
-import GradientHeading from '~/components/blocks/GradientHeading'
 
 export default {
   components: {
     Blocks,
-    HomeMarquee,
-    GradientHeading
+    HomeMarquee
   },
 
   transition: {

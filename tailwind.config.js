@@ -22,11 +22,14 @@ module.exports = {
     },
     extend: {
       letterSpacing: {
-        widest: '0.2em'
+        widest: '0.4em'
       },
       translate: {
         minus50p: '-50%',
         '50p': '-50%'
+      },
+      lineHeight: {
+        semi: '1.15'
       },
       cursor: {
         grab: 'grab'
@@ -35,6 +38,7 @@ module.exports = {
         offblack: '#2e2e2e',
         grey: '#f7f7fd',
         purple: '#cc01f1',
+        orange: '#fc0451',
         red: '#fe048f',
         pink: '#fe01a4',
         green: '#6cd0b3',

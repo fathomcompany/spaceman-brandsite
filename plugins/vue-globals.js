@@ -9,7 +9,7 @@ Vue.component('visual', VueVisual).options.setDefaults({
   autoplay: 'visible',
   loadPoster: true,
   transition: 'vv-fade',
-  inViewportRootMargin: '2500px 0%'
+  inViewportRootMargin: '2000px 0%'
 })
 
 Vue.component('MaskedBuildin', MaskedBuildin)
