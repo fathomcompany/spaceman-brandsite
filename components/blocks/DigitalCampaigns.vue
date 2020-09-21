@@ -8,13 +8,23 @@ DigitalCampaigns
   ResponsiveMedia.absolute.inset-0(
     :image="block.imageBackground"
     :fill="true"
-    background-position="left center"
+    background-position="right center"
   )
 
-  .phone-frame.absolute
-    ResponsiveMedia(
+  .phone-frame.absolute(:class="{ show: frameVideoReady && frameReady }")
+
+    visual.device-video.absolute.origin-top-right(
+      video="http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4"
+      background="cover"
+      loop autoplay muted
+      @video-loaded="frameVideoReady = true"
+    )
+
+    visual.absolute.inset-0(
+      background="contain"
       :image="require(`~/assets/image/phone-frame.png`)"
       :fill="true"
+      @image-loaded="frameReady = true"
     )
 
   .content-container.absolute.top-0.right-0.text-right
@@ -34,13 +44,14 @@ export default {
       type: Object,
       required: true
     }
-  }
+  },
 
-  // data() {
-  //   return {
-  //     PhoneFrame: require('~assets/image/phone-frame.png')
-  //   }
-  // }
+  data() {
+    return {
+      frameVideoReady: false,
+      frameReady: false
+    }
+  }
 }
 </script>
 
@@ -60,6 +71,23 @@ export default {
 .phone-frame
   padding-bottom 57%
   width 30%
-  left 15%
+  left 2%
   top 16%
+  opacity 0
+  transform translateY(50px)
+  default-transition transform opacity, time-slow, balanced, 0.2s
+
+  &.show
+    opacity 1
+    transform none
+
+  .device-video
+    position absolute
+    left 32%
+    right 7%
+    top 3%
+    bottom 30%
+    transform skewY(-33deg)
+    border-bottom-left-radius 40px
+    overflow hidden
 </style>
