@@ -32,6 +32,7 @@
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "rolly.js": "^0.4.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vue-balance-text": "^1.2.3",

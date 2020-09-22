@@ -12,15 +12,19 @@ Marquee
     :fill="true"
     background-position="center center"
   )
+
+  ScrollDownArrow
+
 </template>
 
 <script>
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
+import ScrollDownArrow from '~/components/shared/ScrollDownArrow'
 
 export default {
   name: 'Marquee',
 
-  components: { ResponsiveMedia },
+  components: { ResponsiveMedia, ScrollDownArrow },
 
   props: {
     block: {
