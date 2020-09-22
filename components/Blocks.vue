@@ -22,7 +22,7 @@ import ContactForm from '~/components/blocks/ContactForm'
 import LogoGarden from '~/components/blocks/LogoGarden'
 import HeadingContent from '~/components/blocks/HeadingContent'
 import Slider from '~/components/blocks/Slider'
-import HomeMarquee from '~/components/blocks/HomeMarquee'
+import Marquee from '~/components/blocks/Marquee'
 import GradientHeading from '~/components/blocks/GradientHeading'
 import Reel from '~/components/blocks/Reel'
 import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
@@ -42,8 +42,7 @@ const blocks = {
   blockCampaignDeviceScreens: DigitalCampaigns,
   blockReel: Reel,
   blockGradientHeading: GradientHeading,
-
-  HomeMarquee
+  blockMarquee: Marquee
 }
 
 // Export just the list of keys

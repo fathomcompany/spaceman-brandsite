@@ -1,9 +1,5 @@
 <template lang="pug">
-.page(
-  style="margin-top: 80px;"
-)
-  HomeMarquee
-
+.page
   Blocks(:blocks="blocks")
 
 </template>
@@ -16,12 +12,9 @@ import { makeMeta } from '~/utils/meta'
 
 import Blocks from '~/components/Blocks'
 
-import HomeMarquee from '~/components/blocks/HomeMarquee'
-
 export default {
   components: {
-    Blocks,
-    HomeMarquee
+    Blocks
   },
 
   transition: {

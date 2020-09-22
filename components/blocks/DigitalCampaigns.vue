@@ -11,13 +11,16 @@ DigitalCampaigns
     background-position="right center"
   )
 
-  .phone-frame.absolute(:class="{ show: frameVideoReady && frameReady }")
+  .phone-frame.absolute(:class="{ show: frameContentReady && frameReady }")
 
     visual.device-video.absolute.origin-top-right(
-      video="http://www.exit109.com/~dnn/clips/RW20seconds_2.mp4"
+      :video="videoSrc"
+      :image="imageSrc"
+      :alt="imageAlt"
       background="cover"
       loop autoplay muted
-      @video-loaded="frameVideoReady = true"
+      @video-loaded="frameContentReady = true"
+      @image-loaded="frameContentReady = true"
     )
 
     visual.absolute.inset-0(
@@ -32,6 +35,8 @@ DigitalCampaigns
 </template>
 
 <script>
+import get from 'lodash.get'
+import { makeSrc } from '~/utils/images'
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
 export default {
@@ -48,8 +53,26 @@ export default {
 
   data() {
     return {
-      frameVideoReady: false,
+      frameContentReady: false,
       frameReady: false
+    }
+  },
+
+  computed: {
+    videoSrc() {
+      return get(this, 'block.videoDevice.fields.file.url')
+    },
+
+    image() {
+      return get(this, 'block.imageDevice')
+    },
+
+    imageSrc() {
+      return makeSrc(this.image)
+    },
+
+    imageAlt() {
+      return this.$imgAlt(this.image)
     }
   }
 }

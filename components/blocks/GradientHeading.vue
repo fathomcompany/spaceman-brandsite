@@ -66,4 +66,7 @@ export default {
 <style lang="stylus" scoped>
 .GradientHeading
   aspect-ratio 1.5/1, true
+
+  @media(max-width tablet)
+    aspect-ratio .7/1, true
 </style>
