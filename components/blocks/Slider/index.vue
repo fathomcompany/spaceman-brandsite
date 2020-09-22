@@ -14,6 +14,8 @@ Slider
           .max-w-sm
             h3.h2 Gordon Ramsay: Uncharted
 
+        nuxt-link.absolute.inset-0(to="/project/gordon-ramsay-uncharted")
+
   //- Previous
   .pagination.prev.cursor-pointer.p-4.left-0.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
     img(src="~assets/image/slider-arrow.png")

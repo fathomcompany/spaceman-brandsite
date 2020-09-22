@@ -3,7 +3,8 @@ CloseButton
 -->
 
 <template lang="pug">
-.CloseButton
+.CloseButton.absolute.right-0.top-0.text-6xl.font-hairline.z-50.w-12
+  nuxt-link(to="/") &#215;
 </template>
 
 <script>

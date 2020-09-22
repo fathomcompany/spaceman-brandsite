@@ -2,8 +2,11 @@
 .project(
   :class="[`project-${project.path}`]"
 )
+  CloseButton
 
   Blocks(:blocks="blocks")
+
+
 
 </template>
 
@@ -14,9 +17,10 @@ import { notFound } from '~/utils/errors'
 import { makeMeta } from '~/utils/meta'
 
 import Blocks from '~/components/Blocks'
+import CloseButton from '~/components/shared/CloseButton'
 
 export default {
-  components: { Blocks },
+  components: { Blocks, CloseButton },
 
   transition: {
     name: 'fade',
