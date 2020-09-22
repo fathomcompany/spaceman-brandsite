@@ -29,6 +29,7 @@ import DigitalCampaigns from '~/components/blocks/DigitalCampaigns'
 import ImmersiveExperiences from '~/components/blocks/ImmersiveExperiences'
 import MobileFirstContent from '~/components/blocks/MobileFirstContent'
 import ProjectMarquee from '~/components/blocks/ProjectMarquee'
+import MediaGrid from '~/components/blocks/MediaGrid'
 
 // List of block components
 // Key is the API ID of the content type
@@ -44,7 +45,8 @@ const blocks = {
   blockReel: Reel,
   blockGradientHeading: GradientHeading,
   blockMarquee: Marquee,
-  blockProjectMarquee: ProjectMarquee
+  blockProjectMarquee: ProjectMarquee,
+  blockMediaGrid: MediaGrid
 }
 
 // Export just the list of keys
