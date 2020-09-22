@@ -1,6 +1,6 @@
 <template lang="pug">
 .project(
-  :class="[`project-${project.slug}`]"
+  :class="[`project-${project.path}`]"
 )
 
   Blocks(:blocks="blocks")
@@ -31,7 +31,7 @@ export default {
       await store.dispatch('settings/fetch')
     }
 
-    let path = params.slug
+    let path = params.path
     path = path.trim()
     path = path.replace(/\/$/, '') // strip trailing slash if necessary
 
@@ -39,7 +39,7 @@ export default {
     if (project) return project
 
     project = await app.$contentful.getEntry('project', {
-      'fields.slug': path,
+      'fields.path': path,
       include: 4
     })
 
@@ -65,14 +65,14 @@ export default {
     },
 
     blocks() {
-      return this.project.blocks
+      return get(this.project, 'blocks.content', [])
     }
   },
 
   head() {
     return makeMeta(this.project.meta, {
       title: this.project.title,
-      canonical: `${process.env.BASE_URL}/project/${this.project.slug}/`
+      canonical: `${process.env.BASE_URL}/project/${this.project.path}/`
     })
   }
 }
