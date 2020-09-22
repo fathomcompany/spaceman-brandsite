@@ -34,6 +34,7 @@
     "rolly.js": "^0.4.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "vue-balance-text": "^1.2.3",
     "vue-in-viewport-directive": "^2.0.0",
     "vue-visual": "^1.0.0",
     "vuex-pathify": "^1.4.1",

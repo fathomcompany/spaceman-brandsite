@@ -2165,6 +2165,11 @@ babylon@^6.18.0:
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
   integrity sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ==
 
+balance-text@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/balance-text/-/balance-text-3.2.1.tgz#dead6553944b6e4e5f616a33423a44e93558dfd9"
+  integrity sha512-2mZCyeL1PgRaY20mHx9ScC7waurtCTf1htGChfEmFImZRztc52fB/VIWN+8VAPMKWpCuAAzxzhthHFeKEmbDlw==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -9450,6 +9455,13 @@ vue-analytics@^5.22.1:
   version "5.22.1"
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
+
+vue-balance-text@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/vue-balance-text/-/vue-balance-text-1.2.3.tgz#b5ce40b6d0bc57b866a133db4bbde6208b7a2609"
+  integrity sha512-o5IYdVcheyht3Ljh9DxxpPVG+4Y1U4I634DodLpmliM0VR57JU4O01X3Gvy/junkrylAhY9iatiajIIQo5SpKA==
+  dependencies:
+    balance-text "3.2.1"
 
 vue-class-component@^7.1.0:
   version "7.2.3"
