@@ -9,7 +9,7 @@ ProjectMarquee
     :mobileImage="block.imageMobile"
     :fill="true"
   )
-  .content-wide.relative
+  .content-wide.relative.top-gutter-huge.bottom-gutter
     ContentfulRichText(:content="block.content")
 </template>
 
