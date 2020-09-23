@@ -14,18 +14,34 @@ MediaGrid
     )
       .item(
         v-masonry-tile
-        v-for="(n,index) in 40"
-        :class="[getRandom()]"
+        v-for="(asset, index) in block.assets"
+        :class="[asset.aspect || 'Square']"
       )
         .item-wrapper.relative
-          .absolute.inset-0.m-2.bg-pink
+          .media-container.absolute.inset-0.flex.justify-center.items-center
+            ResponsiveMedia(
+              :image='asset.image'
+              :video='asset.video'
+              :fill="true"
+            )
 </template>
 
 <script>
+import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
+
 const LAYOUTS = ['square', 'tall', 'wide']
 
 export default {
   name: 'MediaGrid',
+
+  components: { ResponsiveMedia },
+
+  props: {
+    block: {
+      type: Object,
+      required: true
+    }
+  },
 
   methods: {
     getRandom() {
@@ -36,17 +52,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-gap = 20px
+gap = 20px / 2.5
 .MediaGrid
   .content-wide
     width "calc(100% + %s)" % (gap)
+
+  .grid
     margin-left (gap/-2)
 
+  .media-container
+    margin (gap)
   .item
     @media(max-width tablet)
       width 100%
 
-  .item.tall
+  .item.Tall
     @media(min-width (tablet + 1px))
       width 33.3333%
 
@@ -57,7 +77,7 @@ gap = 20px
       .item-wrapper
         padding-bottom 200%
 
-  .item.square
+  .item.Square
     @media(min-width (tablet + 1px))
       width 33.3333%
 
@@ -68,7 +88,7 @@ gap = 20px
       .item-wrapper
         padding-bottom 100%
 
-  .item.wide
+  .item.Wide
     @media(min-width (tablet + 1px))
       width 66.6666%
 

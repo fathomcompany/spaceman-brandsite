@@ -3,14 +3,15 @@ ProjectMarquee
 -->
 
 <template lang="pug">
-.ProjectMarquee.relative.h-gutter
+.ProjectMarquee.relative.h-gutter.text-center
   ResponsiveMedia(
     :image="block.imageDesktop"
     :mobileImage="block.imageMobile"
     :fill="true"
+    background-position="75% center"
   )
-  .content-wide.relative.top-gutter-huge.bottom-gutter
-    ContentfulRichText(:content="block.content")
+  .content-wide.relative.top-gutter-huge.bottom-gutter.text-left.w-full
+    ContentfulRichText.rich-text(:content="block.content")
 </template>
 
 <script>
@@ -35,6 +36,6 @@ export default {
 .ProjectMarquee
   aspect-ratio 2.5/1, true
 
-  .content-wide
-    max-width 875px
+  .rich-text
+    max-width 950px
 </style>
