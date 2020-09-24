@@ -15,7 +15,7 @@ Reel
   .content.relative.v-gutter.text-black.text-center
     h2.h1(v-if="block.heading" v-html="block.heading")
 
-    .pt-12.md_py-20(v-if="true")
+    .pt-12.md_py-20(v-if="videoSrc")
       .reel-container.relative(
         :class="{ show: frameVideoReady && frameReady }"
       )
@@ -27,7 +27,7 @@ Reel
         )
 
         visual.reel-video.absolute.origin-top-right(
-          video="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+          :video="videoSrc"
           background="cover"
           :loop="true"
           :muted="true"
@@ -37,6 +37,8 @@ Reel
 </template>
 
 <script>
+import get from 'lodash.get'
+
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
 export default {
@@ -55,6 +57,12 @@ export default {
     return {
       frameVideoReady: false,
       frameReady: false
+    }
+  },
+
+  computed: {
+    videoSrc() {
+      return get(this, 'block.videoInsideTelevision.fields.file.url')
     }
   }
 }
