@@ -3,19 +3,29 @@ Slider
 -->
 
 <template lang="pug">
-.Slider.relative
+.Slider.relative(v-if="block.projects && block.projects.length")
   Hooper(
     :settings="hooperSettings"
     ref="hooper"
   )
-    Slide.slide(v-for="(slide, index) in slides" :key="index")
+    Slide.slide(v-for="(project, index) in block.projects" :key="index")
       .slide-content.bg-cover.bg-center.relative
-        .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center
+
+        ResponsiveMedia(
+          v-if="project.imageListing"
+          :image="project.imageListing"
+          :fill="true"
+          background="cover"
+        )
+
+        .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
+          v-if="project.titleListing"
+        )
           .max-w-sm
-            h3.h2 Gordon Ramsay: Uncharted
+            h3.h15(v-html="replaceNewLines(project.titleListing)")
 
         a.absolute.inset-0.cursor-pointer(
-          @click.stop.prevent="onLinkClick('/project/gordon-ramsay-uncharted')"
+          @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
         )
 
   //- Previous
@@ -31,12 +41,15 @@ Slider
 import { Hooper, Slide } from 'hooper'
 import 'hooper/dist/hooper.css'
 
+import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
+
 export default {
   name: 'Slider',
 
   components: {
     Hooper,
-    Slide
+    Slide,
+    ResponsiveMedia
   },
 
   props: {
@@ -66,13 +79,21 @@ export default {
     }
   },
 
-  computed: {
-    slides() {
-      return Array.from({ length: 8 })
-    }
+  mounted() {
+    if (!window || typeof window === 'undefined') return
+
+    // To force the responsive image to be the correct size
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'))
+    }, 200)
   },
 
   methods: {
+    replaceNewLines(string) {
+      if (!string) return ''
+      return string.replace(/\n/gi, '<br/>')
+    },
+
     onLinkClick(path) {
       if (this.$refs.hooper.isSliding) return
 
@@ -94,7 +115,6 @@ export default {
 
 .slide-content
   padding-bottom 160%
-  background-image url('https://p76.f0.n0.cdn.getcloudapp.com/items/8LuPLklG/Image%202020-09-16%20at%204.17.42%20PM.png?v=d9062dc084a3430a8d6dcb484c5ab12c')
 
 .pagination
   max-width 50px
