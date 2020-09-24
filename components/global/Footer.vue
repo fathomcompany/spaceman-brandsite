@@ -12,23 +12,33 @@ footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
 
     span.socials.whitespace-no-wrap
       a(
+        v-if="settings.footerInstagramUrl"
+        :href="settings.footerInstagramUrl"
+        target="_blank" rel="noopener noreferrer"
+      )
+        InstagramIcon
+
+      a.ml-5(
         v-if="settings.footerFacebookUrl"
         :href="settings.footerFacebookUrl"
         target="_blank" rel="noopener noreferrer"
       )
         FacebookIcon
+
       a.ml-5(
         v-if="settings.footerTwitterUrl"
         :href="settings.footerTwitterUrl"
         target="_blank" rel="noopener noreferrer"
       )
         TwitterIcon
+
       a.ml-5(
         v-if="settings.footerDribbbleUrl"
         :href="settings.footerDribbbleUrl"
         target="_blank" rel="noopener noreferrer"
       )
         DribbbleIcon
+
       a.ml-5(
         v-if="settings.footerPinterestUrl"
         :href="settings.footerPinterestUrl"
@@ -45,11 +55,18 @@ import FacebookIcon from '~/assets/svg/facebook.svg?inline'
 import TwitterIcon from '~/assets/svg/twitter.svg?inline'
 import DribbbleIcon from '~/assets/svg/dribbble.svg?inline'
 import PinterestIcon from '~/assets/svg/pinterest.svg?inline'
+import InstagramIcon from '~/assets/svg/Instagram.svg?inline'
 
 export default {
   name: 'GlobalFooter',
 
-  components: { FacebookIcon, TwitterIcon, DribbbleIcon, PinterestIcon },
+  components: {
+    FacebookIcon,
+    TwitterIcon,
+    DribbbleIcon,
+    PinterestIcon,
+    InstagramIcon
+  },
 
   computed: {
     settings() {
