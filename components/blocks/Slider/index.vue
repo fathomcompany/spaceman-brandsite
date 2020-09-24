@@ -3,7 +3,7 @@ Slider
 -->
 
 <template lang="pug">
-.Slider.relative.cursor-grab
+.Slider.relative
   Hooper(
     :settings="hooperSettings"
     ref="hooper"
@@ -14,7 +14,9 @@ Slider
           .max-w-sm
             h3.h2 Gordon Ramsay: Uncharted
 
-        nuxt-link.absolute.inset-0(to="/project/gordon-ramsay-uncharted")
+        a.absolute.inset-0.cursor-pointer(
+          @click.stop.prevent="onLinkClick('/project/gordon-ramsay-uncharted')"
+        )
 
   //- Previous
   .pagination.prev.cursor-pointer.p-4.left-0.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
@@ -46,6 +48,8 @@ export default {
 
   data() {
     return {
+      isDragging: false,
+      shortDrag: false,
       hooperSettings: {
         infiniteScroll: true,
         wheelControl: false,
@@ -65,6 +69,16 @@ export default {
   computed: {
     slides() {
       return Array.from({ length: 8 })
+    }
+  },
+
+  methods: {
+    onLinkClick(path) {
+      if (this.$refs.hooper.isSliding) return
+
+      this.$router.push({
+        path
+      })
     }
   }
 }
