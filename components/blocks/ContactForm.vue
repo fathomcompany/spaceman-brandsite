@@ -3,9 +3,17 @@ ContactForm
 -->
 
 <template lang="pug">
-.ContactForm.bg-cover.bg-center.h-gutter.flex
+.ContactForm.bg-cover.bg-center.h-gutter.flex.relative
 
-  .content.v-gutter
+  ResponsiveMedia.absolute.inset-0(
+    v-if="block.imageBackground"
+    background="cover"
+    :image="block.imageBackground"
+    :video="block.videoBackground"
+    :fill="true"
+  )
+
+  .content.v-gutter.relative
 
     h2.h1.pb-8(v-if="block.heading" v-html="block.heading")
 
@@ -52,6 +60,5 @@ export default {
 
 <style lang="stylus" scoped>
 .ContactForm
-  background-image url('https://p76.f0.n0.cdn.getcloudapp.com/items/YEuo9oG6/Image%202020-09-15%20at%203.15.39%20PM.png?v=abbc19be9d441dc68ee29aa9db5b41ef')
   aspect-ratio 1.4/1, false
 </style>
