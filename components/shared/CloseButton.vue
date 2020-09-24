@@ -3,8 +3,10 @@ CloseButton
 -->
 
 <template lang="pug">
-.CloseButton.absolute.right-0.top-0.text-6xl.font-hairline.z-50.w-12
-  nuxt-link(to="/") &#215;
+.CloseButton.fixed.right-0.top-0.text-6xl.font-hairline.z-50.mt-4.mr-4.origin-center.h-8.w-8.md_h-12.md_w-12
+  nuxt-link.inset-0.absolute(to="/")
+    .bar.bg-white.absolute.h-full.transform.rotate-45.origin-center.left-50p
+    .bar.bg-white.absolute.h-full.transform.-rotate-45.origin-center.left-50p
 </template>
 
 <script>
@@ -15,5 +17,11 @@ export default {
 
 <style lang="stylus" scoped>
 .CloseButton
-  //
+  default-transition transform, time-reg
+
+  +whenActive()
+    transform scale(1.1)
+
+.bar
+  width 2px
 </style>
