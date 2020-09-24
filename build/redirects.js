@@ -15,7 +15,7 @@ config({
 })
 
 module.exports = function() {
-  this.nuxt.hook('build:before', generateRedirects)
+  this.nuxt.hook('generate:before', generateRedirects)
 }
 
 /**
@@ -25,13 +25,10 @@ module.exports = function() {
  */
 function generateRedirects(builder) {
   // Only run if generating on netlify (which adds a DEPLOY_URL env)
-  if (
-    process.env.npm_lifecycle_event === 'generate' &&
-    process.env.DEPLOY_URL
-  ) {
+  if (process.env.npm_lifecycle_event === 'generate') {
     console.log('=======BUILDING REDIRECTS FROM CONTENTFUL========')
 
-    let contents = ''
+    let contents = '\n\n# Dynamic redirects\n'
 
     // Set up a wildcard route so the staing SPA can find unpublished content pages
     if (process.env.NUXT_MODE === 'spa') {
@@ -44,6 +41,6 @@ function generateRedirects(builder) {
 
     console.log('=======END OF REDIRECTS========')
 
-    fs.writeFileSync(path, contents)
+    fs.appendFileSync(path, contents)
   }
 }
