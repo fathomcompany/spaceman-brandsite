@@ -19,11 +19,11 @@ Slider
         )
 
   //- Previous
-  .pagination.prev.cursor-pointer.p-4.left-0.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
+  .pagination.prev.cursor-pointer.p-4.left-0.ml-2.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
     img(src="~assets/image/slider-arrow.png")
 
   //- Next
-  .pagination.next.cursor-pointer.p-4.right-0.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slideNext()")
+  .pagination.next.cursor-pointer.p-4.right-0.mr-2.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slideNext()")
     img.transform.origin-center.rotate-180(src="~assets/image/slider-arrow.png")
 </template>
 
