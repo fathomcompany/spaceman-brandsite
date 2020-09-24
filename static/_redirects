@@ -1,6 +1,6 @@
 # Previous site routes
-/work.html        /
-/about.html       /
-/process.html     /
-/studios.html     /
-/contact.html     /
+/work.html        / 301
+/about.html       / 301
+/process.html     / 301
+/studios.html     / 301
+/contact.html     / 301
