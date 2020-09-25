@@ -55,7 +55,7 @@ import FacebookIcon from '~/assets/svg/facebook.svg?inline'
 import TwitterIcon from '~/assets/svg/twitter.svg?inline'
 import DribbbleIcon from '~/assets/svg/dribbble.svg?inline'
 import PinterestIcon from '~/assets/svg/pinterest.svg?inline'
-import InstagramIcon from '~/assets/svg/Instagram.svg?inline'
+import InstagramIcon from '~/assets/svg/instagram.svg?inline'
 
 export default {
   name: 'GlobalFooter',
