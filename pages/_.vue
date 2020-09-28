@@ -1,7 +1,6 @@
 <template lang="pug">
 .page
-  Blocks(:blocks="blocks")
-
+  Blocks(:blocks='blocks')
 </template>
 
 <script>
@@ -23,24 +22,25 @@ export default {
   },
 
   async asyncData(context) {
-    const { error, app, store } = context
+    const { params, error, app, store } = context
 
     // Get settings, if we're in SPA mode
     if (process.env.NUXT_MODE === 'spa') {
       await store.dispatch('settings/fetch')
     }
 
-    const path = '/'
+    let path = params.pathMatch || '/'
+    path = path.trim()
+    path = path.replace(/\/$/, '') // strip trailing slash if necessary
 
     let page = store.get('cache/pages', path)
     if (page) return page
 
     page = await app.$contentful.getEntry('homePage', {
+      'fields.path': path,
       include: 4,
       limit: 1
     })
-
-    // console.log(page)
 
     if (!page) return error(notFound)
 

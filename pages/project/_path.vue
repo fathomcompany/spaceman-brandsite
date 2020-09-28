@@ -1,13 +1,8 @@
 <template lang="pug">
-.project(
-  :class="[`project-${project.path}`]"
-)
+.project(:class='[`project-${project.path}`]')
   CloseButton
 
-  Blocks(:blocks="blocks")
-
-
-
+  Blocks(:blocks='blocks')
 </template>
 
 <script>
@@ -44,7 +39,8 @@ export default {
 
     project = await app.$contentful.getEntry('project', {
       'fields.path': path,
-      include: 4
+      include: 4,
+      limit: 1
     })
 
     if (!project) return error(notFound)

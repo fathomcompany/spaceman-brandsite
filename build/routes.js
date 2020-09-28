@@ -16,38 +16,39 @@ config({
 }) // 5 mins
 
 // Build the list of all routes for generating static files
-module.exports.forGenerate = function() {
+module.exports.forGenerate = async function() {
   // Simple routes
-  const routes = [
+  let routes = [
     '/' // Should generate using the main Home Page
   ]
 
-  // /**
-  //  * PAGES
-  //  */
-  // const { items: pages } = await getEntries('page', { include: 3 })
-  // if (pages && pages.length) {
-  //   routes = routes.concat(
-  //     pages.map(function(entry) {
-  //       if (['homepage'].includes(entry.slug)) {
-  //         return
-  //       } // Pages not to render
-  //       return { route: `/${entry.slug}` }
-  //     })
-  //   )
-  // }
+  /**
+   * PAGES
+   */
+  const { items: pages } = await getEntries('page', { include: 3 })
+  if (pages && pages.length) {
+    routes = routes.concat(
+      pages.map(function(entry) {
+        // Skip homepage
+        if (entry.path === '/') {
+          return
+        }
+        return { route: `/${entry.path}` }
+      })
+    )
+  }
 
-  // /**
-  //  * PROJECTS
-  //  */
-  // const { items: projects } = await getEntries('project', { include: 3 })
-  // if (projects && projects.length) {
-  //   routes = routes.concat(
-  //     projects.map(function(entry) {
-  //       return { route: `/project/${entry.slug}` }
-  //     })
-  //   )
-  // }
+  /**
+   * PROJECTS
+   */
+  const { items: projects } = await getEntries('project', { include: 3 })
+  if (projects && projects.length) {
+    routes = routes.concat(
+      projects.map(function(entry) {
+        return { route: `/project/${entry.path}` }
+      })
+    )
+  }
 
   // Return non empty routes
   return routes.filter((route) => !!route)
