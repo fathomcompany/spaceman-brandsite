@@ -29,9 +29,12 @@ export default {
       await store.dispatch('settings/fetch')
     }
 
-    let path = params.pathMatch || '/'
+    let path = params.pathMatch || ''
     path = path.trim()
     path = path.replace(/\/$/, '') // strip trailing slash if necessary
+
+    // Default to home page
+    if (!path) path = '/'
 
     let page = store.get('cache/pages', path)
     if (page) return page
