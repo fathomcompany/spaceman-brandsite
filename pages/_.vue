@@ -72,7 +72,7 @@ export default {
     return makeMeta(this.page.seo, {
       title: this.page.title,
       canonical: `${process.env.BASE_URL}${
-        this.page.slug === 'homepage' ? '' : `/${this.page.slug}/`
+        this.page.path === '/' ? '' : `/${this.page.path}/`
       }`
     })
   }
