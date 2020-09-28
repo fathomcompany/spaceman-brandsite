@@ -6,23 +6,23 @@ MediaGrid
 .MediaGrid.bg-offblack.h-gutter.py-8.md_py-12.xl_py-20
   .content-wide.relative
     .grid(
-      v-masonry
-      :maxCols="3"
-      :maxColWidth="800"
-      :gap="10"
-      transition-duration="0s"
+      v-masonry,
+      :maxCols='3',
+      :maxColWidth='800',
+      :gap='10',
+      transition-duration='0s'
     )
       .item(
-        v-masonry-tile
-        v-for="(asset, index) in block.assets"
-        :class="[asset.aspect || 'Square']"
+        v-masonry-tile,
+        v-for='(asset, index) in block.assets',
+        :class='[asset.aspect || "Square"]'
       )
         .item-wrapper.relative
-          .media-container.absolute.inset-0.flex.justify-center.items-center
+          .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black
             ResponsiveMedia(
-              :image='asset.image'
-              :video='asset.video'
-              :fill="true"
+              :image='asset.image',
+              :video='asset.video',
+              :fill='true'
             )
 </template>
 
@@ -52,50 +52,52 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-gap = 20px / 2.5
+gap = (20px / 2.5)
+
 .MediaGrid
   .content-wide
-    width "calc(100% + %s)" % (gap)
+    width 'calc(100% + %s)' % gap
 
   .grid
-    margin-left (gap/-2)
+    margin-left (gap / -2)
 
   .media-container
-    margin (gap)
+    margin gap
+
   .item
-    @media(max-width tablet)
+    @media (max-width tablet)
       width 100%
 
   .item.Tall
-    @media(min-width (tablet + 1px))
+    @media (min-width (tablet + 1px))
       width 33.3333%
 
       .item-wrapper
-        padding-bottom "calc(200% - %s)" % (gap)
+        padding-bottom 'calc(200% - %s)' % gap
 
-    @media(max-width tablet)
+    @media (max-width tablet)
       .item-wrapper
         padding-bottom 200%
 
   .item.Square
-    @media(min-width (tablet + 1px))
+    @media (min-width (tablet + 1px))
       width 33.3333%
 
       .item-wrapper
-        padding-bottom "calc(100% - %s)" % (gap/2)
+        padding-bottom 'calc(100% - %s)' % (gap / 2)
 
-    @media(max-width tablet)
+    @media (max-width tablet)
       .item-wrapper
         padding-bottom 100%
 
   .item.Wide
-    @media(min-width (tablet + 1px))
+    @media (min-width (tablet + 1px))
       width 66.6666%
 
       .item-wrapper
-        padding-bottom "calc(50% - %s)" % (gap/2)
+        padding-bottom 'calc(50% - %s)' % (gap / 2)
 
-    @media(max-width tablet)
+    @media (max-width tablet)
       .item-wrapper
         padding-bottom 56.25%
 </style>
