@@ -25,7 +25,7 @@ module.exports.forGenerate = async function() {
   /**
    * PAGES
    */
-  const { items: pages } = await getEntries('page', { include: 3 })
+  const { items: pages } = await getEntries('homePage', { include: 3 })
   if (pages && pages.length) {
     routes = routes.concat(
       pages.map(function(entry) {
