@@ -140,7 +140,7 @@ export default {
   // Google Analytics module config
   googleAnalytics: {
     // Staging and prod use a single ID
-    // id: 'UA-130527260-1'
+    id: 'UA-179207567-1'
     // Toggle off to stop firing in dev mode
     // debug: {
     //   enabled: true,
