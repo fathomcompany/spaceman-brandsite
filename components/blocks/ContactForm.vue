@@ -19,21 +19,33 @@ ContactForm
 
     .md_flex.justify-between
       .column.md_w-43p
-        form(name="contact" method="POST" data-netlify="true")
+        form(
+          ref="form"
+          name="contact"
+          method="POST"
+          netlify
+          netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit"
+        )
+          //- Hidden input to check for bots
+          input(type="hidden" name="form-name" value="contact")
+
           div
             label Name
-            input(type="text" name="name" required placeholder="Your Name*")
+            input(type="text" name="name" required placeholder="Your Name*" v-model="formFields.name")
           div
             label Email Address
-            input(type="email" name="email" required placeholder="Email Address*")
+            input(type="email" name="email" required placeholder="Email Address*" v-model="formFields.email")
           div
             label Phone Number
-            input(type="phone" name="phone" required placeholder="Phone Number")
+            input(type="phone" name="phone" required placeholder="Phone Number" v-model="formFields.phone")
           div
             label Message
-            textarea(name="message" placeholder="Message")
+            textarea(name="message" placeholder="Message" v-model="formFields.message")
           div.pt-6
-            button(type="submit") Send
+            button(
+              type="submit"
+            ) Send
 
       .column.mt-20.md_w-43p.md_mt-0
         ContentfulRichText(:content="block.sideContent" formatting="contact")
@@ -53,6 +65,32 @@ export default {
     block: {
       type: Object,
       required: true
+    }
+  },
+
+  data() {
+    return {
+      endpoint:
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:53644/.netlify/functions/send-contact-email'
+          : '/.netlify/functions/send-contact-email',
+      formFields: {
+        email: 'email@email.com',
+        name: 'name!',
+        phone: 'phone!',
+        message: 'message!'
+      }
+    }
+  },
+
+  methods: {
+    async handleSubmit(e) {
+      try {
+        const res = await this.$axios.post(this.endpoint, this.formFields)
+        console.log(res)
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 }
