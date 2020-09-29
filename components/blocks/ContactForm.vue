@@ -73,7 +73,7 @@ export default {
       endpoint:
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:53644/.netlify/functions/send-contact-email'
-          : '/.netlify/functions/send-contact-email',
+          : `${process.env.BASE_URL}/.netlify/functions/send-contact-email`,
       formFields: {
         email: 'email@email.com',
         name: 'name!',
