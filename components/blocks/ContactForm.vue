@@ -28,7 +28,7 @@ ContactForm
             input(type="email" name="email" required placeholder="Email Address*")
           div
             label Phone Number
-            input(type="phone" name="phone" required placeholder="Phone Number*")
+            input(type="phone" name="phone" required placeholder="Phone Number")
           div
             label Message
             textarea(name="message" placeholder="Message")
