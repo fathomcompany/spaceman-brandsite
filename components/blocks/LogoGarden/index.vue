@@ -7,10 +7,11 @@ LogoGarden
   .content.v-gutter-huge
     Grid(:logos="topLogos")
 
-    h3.h1(
-      v-if="block.heading" v-html="block.heading"
-      :class="{ 'mt-12 md_mt-8': !!topLogos, 'mb-20': !!bottomLogos }"
-    )
+    MaskedBuildin(v-if="block.heading")
+      h3.h1(
+        v-html="block.heading"
+        :class="{ 'mt-12 md_mt-8': !!topLogos, 'mb-20': !!bottomLogos }"
+      )
 
     Grid(:logos="bottomLogos")
 

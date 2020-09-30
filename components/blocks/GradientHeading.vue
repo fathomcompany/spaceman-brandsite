@@ -19,13 +19,13 @@ GradientHeading
         v-if="plainHeading"
         v-for="(line, index) in plainHeading"
         v-html="line"
-        v-in-viewport
+        v-in-viewport.once
       )
       div.bg-clip-text.text-transparent.bg-gradient-to-r.from-orange.via-pink.to-purple(
         v-if="gradientHeading"
         v-for="(line, index) in gradientHeading"
         v-html="line"
-        v-in-viewport
+        v-in-viewport.once
       )
 
 </template>

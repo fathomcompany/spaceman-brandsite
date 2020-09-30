@@ -13,7 +13,8 @@ ImmersiveExperiences
 
   .relative.v-gutter.w-full
     .h-gutter(v-if="block.heading")
-      h2.h1.text-black(v-html="block.heading")
+      MaskedBuildin
+        h2.h1.text-black(v-html="block.heading")
 
     .text-right(:class="{ 'pt-16': !!block.heading }")
       .background-video.inline-block

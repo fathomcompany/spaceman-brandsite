@@ -15,9 +15,8 @@ ContactForm
 
   .content.v-gutter.relative
 
-    h2.h1.pb-8(v-if="block.heading" v-html="block.heading")
-
-
+    MaskedBuildin(v-if="block.heading")
+      h2.h1.pb-8(v-html="block.heading")
 
     .md_flex.justify-between
       .column.md_w-43p.relative
@@ -29,7 +28,7 @@ ContactForm
             key="message"
           )
 
-          form.w-full(
+          form(
             v-if="!formSubmitted"
             ref="form"
             name="contact"
@@ -39,6 +38,7 @@ ContactForm
             @submit.prevent="handleSubmit"
             key="form"
           )
+
             //- Hidden input to check for bots
             input(type="hidden" name="form-name" value="contact")
 

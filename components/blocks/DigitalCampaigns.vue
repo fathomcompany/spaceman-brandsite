@@ -31,7 +31,8 @@ DigitalCampaigns
     )
 
   .content-container.absolute.top-0.right-0.text-right
-    h2.h1(v-if="block.heading" v-html="block.heading")
+    MaskedBuildin(v-if="block.heading")
+      h2.h1(v-html="block.heading")
 </template>
 
 <script>
