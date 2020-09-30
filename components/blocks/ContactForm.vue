@@ -69,7 +69,6 @@ ContactForm
               input(
                 type="phone"
                 name="phone"
-                required
                 :disabled="xhrStarted"
                 placeholder="Phone Number"
                 v-model="formFields.phone"
