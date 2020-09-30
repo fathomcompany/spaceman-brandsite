@@ -21,6 +21,7 @@ ImmersiveExperiences
         .media-container.relative
           ResponsiveMedia.absolute.inset-0(
             :image="block.imageLargeRightImage"
+            :video="block.videoLargeRightVideo"
             :fill="true"
             background-position="right center"
           )
@@ -30,6 +31,7 @@ ImmersiveExperiences
         .media-container.relative
           ResponsiveMedia.absolute.inset-0(
             :image="block.imageLowerLeftImage"
+            :video="block.videoLowerLeftVideo"
             :fill="true"
             background-position="right center"
           )
