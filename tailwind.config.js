@@ -22,7 +22,8 @@ module.exports = {
     },
     extend: {
       letterSpacing: {
-        widest: '0.4em'
+        widest: '0.4em',
+        superwide: '0.6em'
       },
       translate: {
         minus50p: '-50%',
@@ -53,7 +54,8 @@ module.exports = {
         '2': '2',
         '3': '3',
         '4': '4',
-        '5': '5'
+        '5': '5',
+        header: '51'
       },
       backgroundOpacity: {
         '35': '0.35',
