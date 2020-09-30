@@ -14,16 +14,18 @@ GradientHeading
   )
 
   .content-wide.h-gutter.relative.pb-10.md_pb-16.w-full
-    h2.h0
+    h2.h0.heading-container
       div(
         v-if="plainHeading"
         v-for="(line, index) in plainHeading"
         v-html="line"
+        v-in-viewport
       )
       div.bg-clip-text.text-transparent.bg-gradient-to-r.from-orange.via-pink.to-purple(
         v-if="gradientHeading"
         v-for="(line, index) in gradientHeading"
         v-html="line"
+        v-in-viewport
       )
 
 </template>
@@ -68,5 +70,19 @@ export default {
   aspect-ratio 1.5/1, true
 
   @media(max-width tablet)
-    aspect-ratio .7/1, true
+    aspect-ratio .8/1, true
+
+.heading-container
+  div
+    default-transition opacity transform, 1.9s, smooth-in
+    transform scale(0.8) translateY(80%);
+    opacity 0
+
+    for num in (1..8)
+      &:nth-of-type({num})
+        transition-delay (num * 0.1s)
+
+    &.in-viewport
+      transform none
+      opacity 1
 </style>
