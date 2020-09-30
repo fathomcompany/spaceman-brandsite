@@ -1,7 +1,7 @@
 input,
 textarea
   border 1px solid rgba(white, 0.6)
-  default-transition border-color, time-reg
+  default-transition border-color opacity, time-reg
   @apply w-full mb-6 p-3 rounded-sm outline-none appearance-none bg-transparent
 
   +placeholder()
@@ -24,3 +24,12 @@ button
 
 label
   @apply hidden
+
+// Disabled styles
+input,
+textarea,
+button
+  default-transition border-color opacity, time-reg
+
+  &:disabled
+    opacity 0.6

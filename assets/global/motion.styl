@@ -11,7 +11,7 @@
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .fade-enter-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .3s 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .fade-leave-active {
   transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
@@ -30,3 +30,14 @@
     .vv-image
       transform none
       opacity 1
+
+.fade-up-enter-active {
+  default-transition transform opacity, time-reg, smooth-in-out, time-reg
+}
+.fade-up-leave-active {
+  default-transition transform opacity, time-reg, smooth-in-out
+}
+.fade-up-enter, .fade-up-leave-to {
+  opacity: 0;
+  transform translateY(20px)
+}

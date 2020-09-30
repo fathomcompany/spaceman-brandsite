@@ -2,15 +2,12 @@
 const sgMail = require('@sendgrid/mail')
 const { validateEmail, validateLength } = require('./validations')
 
-const headers = {}
-
 exports.handler = (event, context, callback) => {
   const body = JSON.parse(event.body)
 
   if (!process.env.SENDGRID_API_KEY) {
     return callback(null, {
       statusCode: 500,
-      headers,
       body: 'process.env.SENDGRID_API_KEY must be defined'
     })
   }
@@ -20,25 +17,15 @@ exports.handler = (event, context, callback) => {
   if (!process.env.CONTACT_EMAIL) {
     return callback(null, {
       statusCode: 500,
-      headers,
       body: 'process.env.CONTACT_EMAIL must be defined'
     })
   }
 
-  // const body = {
-  //   name: 'Stan',
-  //   email: 'stan@fathom.company',
-  //   message: 'FOO BAR lorem ipsum dolor'
-  // }
-
-  // return callback(null, { statusCode: 200, headers, body: 'DEBUG' })
-
   try {
-    validateLength('body.name', body.name, 3, 50)
+    validateLength('body.name', body.name, 2, 40)
   } catch (e) {
     return callback(null, {
       statusCode: 403,
-      headers,
       body: e.message
     })
   }
@@ -48,17 +35,24 @@ exports.handler = (event, context, callback) => {
   } catch (e) {
     return callback(null, {
       statusCode: 403,
-      headers,
       body: e.message
     })
   }
 
   try {
-    validateLength('body.message', body.message, 0, 2000)
+    validateLength('body.phone', body.phone, 0, 25)
   } catch (e) {
     return callback(null, {
       statusCode: 403,
-      headers,
+      body: e.message
+    })
+  }
+
+  try {
+    validateLength('body.message', body.message, 0, 1000)
+  } catch (e) {
+    return callback(null, {
+      statusCode: 403,
       body: e.message
     })
   }
@@ -86,26 +80,19 @@ Message:
 ${body.message}`
   }
 
-  // return callback(null, { statusCode: 200, headers, body: 'DEBUG' })
-
   sgMail
     .send(emailBody)
     .then(() => {
-      console.log('SUCCESS')
       return callback(null, {
         statusCode: 200,
-        headers,
         body: 'success'
       })
     })
     .catch((e) => {
-      console.log('FAIL')
       return callback(null, {
         statusCode: e.code,
-        headers,
+
         body: 'Server could not send message.' + e.message
       })
     })
-
-  console.log('END')
 }
