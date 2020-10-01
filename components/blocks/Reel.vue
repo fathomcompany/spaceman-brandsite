@@ -13,7 +13,7 @@ Reel
   )
 
   .content.relative.v-gutter.text-black.text-center
-    MaskedBuildin(v-if="block.heading" )
+    MaskedBuildin(v-if="block.heading")
       h2.h1(v-html="block.heading")
 
     .pt-12.md_py-20(v-if="videoSrc")

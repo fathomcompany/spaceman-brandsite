@@ -46,6 +46,8 @@ export default {
     reset() {
       this.state = 'default'
 
+      this.$store.set('global/introFinished', true)
+
       // if (process.env.NODE_ENV === 'development')
       //   this.timeoutID = setTimeout(this.setReady, 2000)
     }
@@ -75,6 +77,7 @@ export default {
 
   .cover-screen
     default-transition transform, 1.2s, balanced
+    // opacity 0.5
 
   // PRE BUILD IN
   &.ready

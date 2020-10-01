@@ -4,8 +4,9 @@ MaskedBuildin
 
 <template lang="pug">
 .MaskedBuildin(
+  v-if="introFinished"
   v-in-viewport.once
-  :class="{ 'overflow-hidden' : !allowOverflow, 'md_inset-0 md_absolute': fill  }"
+  :class="{ 'overflow-hidden' : !allowOverflow, 'md_inset-0 md_absolute': fill }"
 )
   .masked-content(
     :class="[{ active: activator, 'md_inset-0 md_absolute': fill }, animation]"
@@ -43,6 +44,11 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    introFinished() {
+      return this.$store.state.global.introFinished
+    }
   }
 }
 </script>
@@ -71,4 +77,7 @@ export default {
     .masked-content.active
       transform none
       opacity 1
+
+  &.can-show
+    background pink
 </style>
