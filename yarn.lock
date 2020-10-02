@@ -9586,10 +9586,9 @@ vue-loader@^15.9.3:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-masonry@^0.11.8:
+vue-masonry@shershen08/vue-masonry:
   version "0.11.8"
-  resolved "https://registry.yarnpkg.com/vue-masonry/-/vue-masonry-0.11.8.tgz#fc2dd458d13b557eebc68d70506af76aa6d1428e"
-  integrity sha512-O+T+3zUghbKpjc+5aubXr8Kg1h9P334+Or9euYyXsQYa3mtScUqZFI6A16BijR9v4hYdtKksuPzU0mQplUvhDA==
+  resolved "https://codeload.github.com/shershen08/vue-masonry/tar.gz/90fc333444a0bf35cc0f33b332fa05b10cff6177"
   dependencies:
     imagesloaded "4.1.4"
     masonry-layout "^4.2.2"

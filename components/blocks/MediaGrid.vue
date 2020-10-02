@@ -11,6 +11,7 @@ MediaGrid
       :maxColWidth='800',
       :gap='10',
       transition-duration='0s'
+      :destroy-delay="5000"
     )
       .item(
         v-masonry-tile,
