@@ -4,8 +4,9 @@ LogoGrid
 
 <template lang="pug">
 .LogoGrid.flex.justify-center.flex-wrap
-  .logo(v-for="logo in logos")
-    visual(:aspect="1.25" :image="makeSrc(logo)" background="contain")
+  .logo(v-for="(logo, i) in logos")
+    MaskedBuildin(:delay='50+1*50')
+      visual(:aspect="1.25" :image="makeSrc(logo)" background="contain")
 </template>
 
 <script>
@@ -34,6 +35,10 @@ export default {
 
 <style lang="stylus" scoped>
 .LogoGrid
+  @media(max-width tablet)
+    width 80%
+    margin 0 auto
+
   .logo
     width 12%
     margin 0 2% 3%
