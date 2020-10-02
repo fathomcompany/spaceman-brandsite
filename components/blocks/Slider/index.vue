@@ -9,7 +9,7 @@ Slider
     ref="hooper"
   )
     Slide.slide(v-for="(project, index) in block.projects" :key="index")
-      .slide-content.bg-cover.bg-center.relative
+      .slide-content.bg-cover.bg-center.relative.overflow-hidden
 
         ResponsiveMedia(
           v-if="project.imageListing"
@@ -24,7 +24,8 @@ Slider
           v-if="project.titleListing"
         )
           .max-w-sm
-            h3.h15(v-html="replaceNewLines(project.titleListing)")
+            MaskedBuildin
+              h3.h15(v-html="replaceNewLines(project.titleListing)")
 
         a.absolute.inset-0.cursor-pointer(
           @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
