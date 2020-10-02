@@ -16,25 +16,26 @@ ImmersiveExperiences
       MaskedBuildin
         h2.h1.text-black(v-html="block.heading")
 
-    .text-right(:class="{ 'pt-16': !!block.heading }")
-      .background-video.inline-block
-        .media-container.relative
-          ResponsiveMedia.absolute.inset-0(
-            :image="block.imageLargeRightImage"
-            :video="block.videoLargeRightVideo"
-            :fill="true"
-            background-position="right center"
-          )
+    .content-wide
+      .text-right(:class="{ 'pt-16': !!block.heading }")
+        .background-video.inline-block
+          .media-container.relative
+            ResponsiveMedia.absolute.inset-0(
+              :image="block.imageLargeRightImage"
+              :video="block.videoLargeRightVideo"
+              :fill="true"
+              background-position="right center"
+            )
 
-    .foreground-video-wrapper
-      .foreground-video.inline-block.relative
-        .media-container.relative
-          ResponsiveMedia.absolute.inset-0(
-            :image="block.imageLowerLeftImage"
-            :video="block.videoLowerLeftVideo"
-            :fill="true"
-            background-position="right center"
-          )
+      .foreground-video-wrapper
+        .foreground-video.inline-block.relative
+          .media-container.relative
+            ResponsiveMedia.absolute.inset-0(
+              :image="block.imageLowerLeftImage"
+              :video="block.videoLowerLeftVideo"
+              :fill="true"
+              background-position="right center"
+            )
 </template>
 
 <script>
@@ -74,7 +75,7 @@ export default {
     padding-bottom 100%
 
 .foreground-video-wrapper
-  margin-top -32%
+  margin-top -27%
 
   @media(max-width tablet)
     margin-top -12%
@@ -85,7 +86,7 @@ export default {
     z-index 1
 
     @media(max-width tablet)
-      width 90%
+      width 85%
 
     .media-container
       padding-bottom 65%
