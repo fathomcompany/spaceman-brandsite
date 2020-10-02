@@ -85,8 +85,11 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .ContentfulRichText
+  .masked-content
+    @apply pb-1;
+
   /**
   SHARED
    */
