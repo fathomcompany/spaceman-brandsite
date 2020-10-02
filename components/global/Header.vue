@@ -6,6 +6,8 @@ GlobalHeader
 header.GlobalHeader.fixed.flex.justify-center.z-header.items-center.pointer-events-none.user-select-none(
   :class="[state]"
 )
+  .bottom-screen.absolute.inset-x-0.top-0.bg-gradient-to-b.frtoom-transparent.from-black.opacity-50.h-20.pointer-events-none
+
   .cover-screen.bg-black.absolute.inset-0.origin-top
 
   .content-wide.text-center.tracking-widest.pt-5.md_pt-8
