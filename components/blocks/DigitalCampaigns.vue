@@ -32,7 +32,7 @@ DigitalCampaigns
 
   .content-container.absolute.top-0.right-0.text-right
     MaskedBuildin(v-if="block.heading")
-      h2.h1(v-html="block.heading")
+      h2.h1.mb-2(v-html="block.heading")
 </template>
 
 <script>
@@ -81,7 +81,10 @@ export default {
 
 <style lang="stylus" scoped>
 .DigitalCampaigns
-  aspect-ratio 1, false
+  aspect-ratio 1.4/1, false
+
+  @media(max-width tablet)
+    aspect-ratio 1/1, false
 
 .content-container
   width 60%
@@ -94,12 +97,17 @@ export default {
 
 .phone-frame
   padding-bottom 57%
-  width 30%
-  left 2%
-  top 16%
+  width 25%
+  left 15%
+  top 7%
   opacity 0
   transform translateY(50px)
   default-transition transform opacity, time-slow, balanced, 0.2s
+
+  @media(max-width tablet)
+    width 30%
+    left 2%
+    top 16%
 
   &.show
     opacity 1
@@ -109,9 +117,13 @@ export default {
     position absolute
     left 32%
     right 7%
-    top 3%
-    bottom 30%
-    transform skewY(-33deg)
+    top 12%
+    bottom 32%
+    transform skewY(-25deg)
     border-bottom-left-radius 15%
     overflow hidden
+
+    @media(max-width tablet)
+      top 2%
+      bottom 28%
 </style>
