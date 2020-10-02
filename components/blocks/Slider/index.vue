@@ -18,6 +18,8 @@ Slider
           background="cover"
         )
 
+        .bottom-screen.absolute.inset-0.bg-gradient-to-b.from-transparent.to-black.opacity-50
+
         .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
           v-if="project.titleListing"
         )
@@ -39,7 +41,10 @@ Slider
 
 <script>
 import { Hooper, Slide } from 'hooper'
+
+/*! purgecss start ignore */
 import 'hooper/dist/hooper.css'
+/*! purgecss start ignore */
 
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
@@ -71,7 +76,7 @@ export default {
         breakpoints: {
           // Above tablet
           767: {
-            itemsToShow: 2.6,
+            itemsToShow: 3.2,
             centerMode: false
           }
         }
@@ -109,9 +114,6 @@ export default {
 .hooper
   outline none
   height auto !important
-
-.slide
-  width 500px
 
 .slide-content
   padding-bottom 160%
