@@ -56,8 +56,8 @@ export default {
 
 <style lang="stylus" scoped>
 .ScrollDownArrow
-  cursor pointer
-  default-transition transform opacity, time-reg, balanced
-  +whenActive()
-    transform scale(1.1) translateX(5%)
+  // cursor pointer
+  // default-transition transform opacity, time-reg, balanced
+  // +whenActive()
+  //   transform scale(1.1) translateX(5%)
 </style>
