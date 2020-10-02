@@ -11,7 +11,11 @@ CloseButton
 
 <script>
 export default {
-  name: 'CloseButton'
+  name: 'CloseButton',
+
+  mounted() {
+    console.log(this.$router)
+  }
 }
 </script>
 

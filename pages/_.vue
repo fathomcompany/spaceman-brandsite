@@ -1,6 +1,9 @@
 <template lang="pug">
 .page
   Blocks(:blocks='blocks')
+
+
+  ScrollDownArrow
 </template>
 
 <script>
@@ -9,11 +12,13 @@ import get from 'lodash.get'
 import { notFound } from '~/utils/errors'
 import { makeMeta } from '~/utils/meta'
 
+import ScrollDownArrow from '~/components/shared/ScrollDownArrow'
 import Blocks from '~/components/Blocks'
 
 export default {
   components: {
-    Blocks
+    Blocks,
+    ScrollDownArrow
   },
 
   transition: {
