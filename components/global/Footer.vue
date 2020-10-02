@@ -8,43 +8,45 @@ GlobalFooter
 footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
 
   .content-wide.flex.justify-between.flex-col-reverse.md_flex-row
-    span.copywright.md_max-w-70p.mt-12.md_mt-0.text-sm {{ copyright }}
+    MaskedBuildin.mt-12.md_mt-0(:delay="300")
+      span.copywright.md_max-w-70p.text-sm {{ copyright }}
 
-    span.socials.whitespace-no-wrap
-      a(
-        v-if="settings.footerInstagramUrl"
-        :href="settings.footerInstagramUrl"
-        target="_blank" rel="noopener noreferrer"
-      )
-        InstagramIcon
+    MaskedBuildin
+      span.socials.whitespace-no-wrap
+        a(
+          v-if="settings.footerInstagramUrl"
+          :href="settings.footerInstagramUrl"
+          target="_blank" rel="noopener noreferrer"
+        )
+          InstagramIcon
 
-      a.ml-5(
-        v-if="settings.footerFacebookUrl"
-        :href="settings.footerFacebookUrl"
-        target="_blank" rel="noopener noreferrer"
-      )
-        FacebookIcon
+        a.ml-5(
+          v-if="settings.footerFacebookUrl"
+          :href="settings.footerFacebookUrl"
+          target="_blank" rel="noopener noreferrer"
+        )
+          FacebookIcon
 
-      a.ml-5(
-        v-if="settings.footerTwitterUrl"
-        :href="settings.footerTwitterUrl"
-        target="_blank" rel="noopener noreferrer"
-      )
-        TwitterIcon
+        a.ml-5(
+          v-if="settings.footerTwitterUrl"
+          :href="settings.footerTwitterUrl"
+          target="_blank" rel="noopener noreferrer"
+        )
+          TwitterIcon
 
-      a.ml-5(
-        v-if="settings.footerDribbbleUrl"
-        :href="settings.footerDribbbleUrl"
-        target="_blank" rel="noopener noreferrer"
-      )
-        DribbbleIcon
+        a.ml-5(
+          v-if="settings.footerDribbbleUrl"
+          :href="settings.footerDribbbleUrl"
+          target="_blank" rel="noopener noreferrer"
+        )
+          DribbbleIcon
 
-      a.ml-5(
-        v-if="settings.footerPinterestUrl"
-        :href="settings.footerPinterestUrl"
-        target="_blank" rel="noopener noreferrer"
-      )
-        PinterestIcon
+        a.ml-5(
+          v-if="settings.footerPinterestUrl"
+          :href="settings.footerPinterestUrl"
+          target="_blank" rel="noopener noreferrer"
+        )
+          PinterestIcon
 
 </template>
 
