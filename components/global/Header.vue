@@ -11,7 +11,7 @@ header.GlobalHeader.fixed.flex.justify-center.items-center.pointer-events-none.u
   .cover-screen.bg-black.absolute.inset-0.origin-top
 
   .content-wide.text-center.tracking-widest.pt-5.md_pt-8
-    h1.ml-4
+    h1.ml-2
       span.inline-block(v-for='(letter,n) in "SPACEMAN"') {{ letter }}
 </template>
 

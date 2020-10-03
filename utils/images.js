@@ -2,7 +2,7 @@ import contentful from 'bukwild-contentful-utils'
 import get from 'lodash.get'
 import { hasWebp } from '~/plugins/webp.client'
 
-const IMAGE_SIZES = [200, 400, 768, 1024, 1500, 1920]
+const IMAGE_SIZES = [100, 300, 375, 768, 1024, 1500, 1920]
 
 /**
  * Returns a vue visual srcset from a Contentful media object

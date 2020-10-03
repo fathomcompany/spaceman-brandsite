@@ -19,7 +19,7 @@ ContactForm
       h2.h1.pb-8(v-html="block.heading")
 
     .md_flex.justify-between
-      .column.md_w-43p.relative
+      MaskedBuildin.column.md_w-43p.relative
 
         transition(name="fade-up")
           p.p.whitespace-pre(

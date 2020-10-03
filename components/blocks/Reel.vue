@@ -3,7 +3,7 @@ Reel
 -->
 
 <template lang="pug">
-.Reel.relative.h-gutter
+.Reel.relative.h-gutter.overflow-hidden
 
   ResponsiveMedia.absolute.inset-0(
     v-if="block.imageBackground"
@@ -16,7 +16,10 @@ Reel
     MaskedBuildin(v-if="block.heading")
       h2.h1(v-html="block.heading")
 
-    .pt-12.md_py-20(v-if="videoSrc")
+    .reel-container-parent.pt-12.md_py-20(
+      v-if="videoSrc"
+      v-in-viewport.once
+    )
       .reel-container.relative(
         :class="{ show: frameVideoReady && frameReady }"
       )
@@ -71,16 +74,19 @@ export default {
 
 <style lang="stylus" scoped>
 .Reel
-  // aspect-ratio 1.2/1, false
+  //
 
 .reel-container
   opacity 0
   transform scale(0.9) translateY(50px)
   default-transition transform opacity, time-slow, balanced, 0.2s
 
-  &.show
-    opacity 1
-    transform none
+.reel-container-parent
+  &.in-viewport
+    .reel-container
+      &.show
+        opacity 1
+        transform none
 
 .reel-video
   top 1.75%

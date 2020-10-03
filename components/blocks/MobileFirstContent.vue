@@ -12,7 +12,10 @@ MobileFirstContent
     background-position="right center"
   )
 
-  .phone-frame.absolute(:class="{ show: frameContentReady && frameReady }")
+  .phone-frame.absolute(
+    v-if="videoSrc || imageSrc"
+    :class="{ show: frameContentReady && frameReady }"
+  )
 
     visual.device-video.absolute.origin-top-right(
       :video="videoSrc"
