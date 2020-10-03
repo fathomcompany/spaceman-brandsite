@@ -3,7 +3,7 @@ GlobalHeader
 -->
 
 <template lang="pug">
-header.GlobalHeader.fixed.flex.justify-center.z-header.items-center.pointer-events-none.user-select-none(
+header.GlobalHeader.fixed.flex.justify-center.items-center.pointer-events-none.user-select-none(
   :class="[state]"
 )
   .bottom-screen.absolute.inset-x-0.top-0.bg-gradient-to-b.frtoom-transparent.from-black.opacity-50.h-20.pointer-events-none
@@ -59,8 +59,9 @@ export default {
 
 <style lang="stylus" scoped>
 .GlobalHeader
-  default-transition height, 1.1s, balanced
+  default-transition height z-index, 1.1s, balanced
   @apply top-0 inset-x-0 h-12;
+  z-index 49
 
   &.initial,
   &.ready,
@@ -83,6 +84,7 @@ export default {
 
   // PRE BUILD IN
   &.ready
+    z-index 51
     h1
       @apply text-5xl tracking-tighter;
       letter-spacing 0
@@ -97,6 +99,7 @@ export default {
 
   // BUILD IN
   &.intro
+    z-index 51
 
     h1
       @apply text-5xl;
