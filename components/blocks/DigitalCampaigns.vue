@@ -3,7 +3,7 @@ DigitalCampaigns
 -->
 
 <template lang="pug">
-.DigitalCampaigns.bg-cover.bg-right.relative
+.DigitalCampaigns.bg-cover.bg-right.relative(v-in-viewport.once)
 
   ResponsiveMedia.absolute.inset-0(
     :image="block.imageBackground"
@@ -86,6 +86,12 @@ export default {
   @media(max-width tablet)
     aspect-ratio 1/1, false
 
+  &.in-viewport
+    .phone-frame
+      &.show
+        opacity 1
+        transform none
+
 .content-container
   width 60%
   padding-right 8%
@@ -101,17 +107,13 @@ export default {
   left 15%
   top 7%
   opacity 0
-  transform translateY(50px)
+  transform translateX(-10%)
   default-transition transform opacity, time-slow, balanced, 0.2s
 
   @media(max-width tablet)
     width 30%
     left 2%
     top 16%
-
-  &.show
-    opacity 1
-    transform none
 
   .device-video
     position absolute

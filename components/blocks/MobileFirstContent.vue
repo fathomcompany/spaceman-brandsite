@@ -3,7 +3,7 @@ MobileFirstContent
 -->
 
 <template lang="pug">
-.MobileFirstContent.bg-cover.bg-right.relative
+.MobileFirstContent.bg-cover.bg-right.relative(v-in-viewport.once)
 
   ResponsiveMedia.absolute.inset-0(
     :image="block.imageDesktop"
@@ -89,6 +89,12 @@ mfcBreakpoint = (tablet + 200px)
   @media(max-width mfcBreakpoint)
     aspect-ratio 0.7/1, false
 
+  &.in-viewport
+    .phone-frame
+      &.show
+        opacity 1
+        transform rotate(45deg)
+
 .content-container
   width 40%
   max-width 550px
@@ -109,18 +115,14 @@ mfcBreakpoint = (tablet + 200px)
   left 23.4%
   top 12.5%
   opacity 0
-  transform translateY(50px) rotate(45deg)
-  default-transition transform opacity, time-slow, balanced, 0.2s
+  transform scale(0.9) rotate(45deg)
+  default-transition transform opacity, time-slow, balanced, 0.4s
 
   @media(max-width tablet)
     width 57%
     left -16%
     top 21%
     padding-bottom 98%
-
-  &.show
-    opacity 1
-    transform rotate(45deg)
 
   .device-video
     position absolute

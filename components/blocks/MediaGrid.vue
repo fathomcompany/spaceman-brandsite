@@ -19,7 +19,7 @@ MediaGrid
         :class='[asset.aspect || "Square"]'
       )
         .item-wrapper.relative
-          .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black
+          .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden
             ResponsiveMedia(
               :image='asset.image',
               :video='asset.video',

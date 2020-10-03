@@ -3,7 +3,10 @@ ResponsiveMedia
 -->
 
 <template lang="pug">
-.ResponsiveMedia(v-in-viewport.once="offset" :class="{ 'inset-0 absolute': fill }")
+.ResponsiveMedia.overflow-hidden(
+  v-in-viewport.once="offset"
+  :class="{ 'inset-0 absolute': fill, 'relative': !fill }"
+)
   visual(
     ref="visual"
     background="cover"
@@ -140,5 +143,9 @@ export default {
 
 <style lang="stylus" scoped>
 .ResponsiveMedia
-  //
+  default-transition transform, time-slow, smooth-in
+  transform scale(1.1)
+
+  &.in-viewport
+    transform scale(1)
 </style>
