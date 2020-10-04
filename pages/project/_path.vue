@@ -70,7 +70,7 @@ export default {
   },
 
   head() {
-    return makeMeta(this.project.meta, {
+    return makeMeta(this.project.seo, {
       title: this.project.title,
       canonical: `${process.env.BASE_URL}/project/${this.project.path}/`
     })

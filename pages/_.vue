@@ -2,7 +2,6 @@
 .page
   Blocks(:blocks='blocks')
 
-
   ScrollDownArrow
 </template>
 

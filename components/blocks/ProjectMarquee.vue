@@ -5,6 +5,7 @@ ProjectMarquee
 <template lang="pug">
 .ProjectMarquee.relative.h-gutter.text-center
   ResponsiveMedia(
+    v-if="block.imageDesktop || block.imageMobile"
     :image="block.imageDesktop"
     :mobileImage="block.imageMobile"
     :fill="true"

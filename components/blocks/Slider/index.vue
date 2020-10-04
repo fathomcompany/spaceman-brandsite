@@ -9,7 +9,7 @@ Slider
     ref="hooper"
   )
     Slide.slide(v-for="(project, index) in block.projects" :key="index")
-      .slide-content.bg-cover.bg-center.relative.overflow-hidden
+      .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
 
         ResponsiveMedia(
           v-if="project.imageListing"
@@ -77,7 +77,7 @@ export default {
         breakpoints: {
           // Above tablet
           767: {
-            itemsToShow: 3.2,
+            itemsToShow: 3,
             centerMode: false
           }
         }
