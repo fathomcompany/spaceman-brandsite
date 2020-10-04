@@ -14,7 +14,16 @@ import GlobalHeader from '~/components/global/Header'
 import GlobalFooter from '~/components/global/Footer'
 
 export default {
-  components: { GlobalHeader, GlobalFooter }
+  components: { GlobalHeader, GlobalFooter },
+
+  mounted() {
+    if (!window || typeof window === 'undefined') return
+
+    window.onbeforeunload = function() {
+      localStorage.clear()
+      return ''
+    }
+  }
 }
 </script>
 

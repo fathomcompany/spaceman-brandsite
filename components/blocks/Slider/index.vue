@@ -6,6 +6,7 @@ Slider
 .Slider.relative(v-if="block.projects && block.projects.length")
   Hooper(
     :settings="hooperSettings"
+    @slide="handleSlideChange"
     ref="hooper"
   )
     Slide.slide.cursor-grab(v-for="(project, index) in block.projects" :key="index")
@@ -44,6 +45,7 @@ Slider
 
 <script>
 import { Hooper, Slide } from 'hooper'
+import get from 'lodash.get'
 
 /*! purgecss start ignore */
 import 'hooper/dist/hooper.css'
@@ -70,7 +72,11 @@ export default {
   data() {
     return {
       isDragging: false,
+
       shortDrag: false,
+
+      ready: false,
+
       hooperSettings: {
         infiniteScroll: true,
         wheelControl: false,
@@ -87,12 +93,29 @@ export default {
     }
   },
 
+  computed: {
+    slideCount() {
+      return get(this, 'block.projects.length')
+    },
+
+    saveKey() {
+      return `SLIDER_${this.$route.path}`
+    }
+  },
+
   mounted() {
     if (!window || typeof window === 'undefined') return
+
+    const initialSlide = localStorage.getItem(this.saveKey) || 0
+
+    if (initialSlide !== 0) {
+      this.$refs.hooper.slideTo(initialSlide)
+    }
 
     // To force the responsive image to be the correct size
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'))
+      this.ready = true
     }, 200)
   },
 
@@ -108,6 +131,14 @@ export default {
       this.$router.push({
         path
       })
+    },
+
+    handleSlideChange({ currentSlide, slideFrom }) {
+      if (!this.ready) return
+
+      if (currentSlide < 0) currentSlide = this.slideCount
+
+      localStorage.setItem(this.saveKey, currentSlide)
     }
   }
 }
