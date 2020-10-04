@@ -11,8 +11,8 @@ footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
     MaskedBuildin.mt-12.md_mt-0(:delay="300")
       span.copywright.md_max-w-70p.text-sm {{ copyright }}
 
-    MaskedBuildin
-      span.socials.whitespace-no-wrap
+    MaskedBuildin.socials.md_text-right
+      span.whitespace-no-wrap
         a(
           v-if="settings.footerInstagramUrl"
           :href="settings.footerInstagramUrl"
@@ -89,28 +89,37 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
+@keyframes whoosh {
+    0% { background-position-x: 0 }
+    100% { background-position-x: 100% }
+  }
+
 .GlobalFooter
   background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
   @media(max-width tablet)
     background-image radial-gradient(circle at -21% -25%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
-a
-  +whenActive()
-    svg
-      path
+
+  .socials
+    @media(min-width (tablet + 1px))
+      flex 0 0 210px
+  a
+    +whenActive()
+      svg
+        path
+          fill white !important
+
+  svg
+    width 19px
+    height 19px
+    display inline-block
+
+    path
+      fill theme('colors.offblack') !important
+      default-transition fill, time-fast
+
+      @media(max-width tablet)
         fill white !important
-
-svg
-  width 19px
-  height 19px
-  display inline-block
-
-  path
-    fill theme('colors.offblack') !important
-    default-transition fill, time-fast
-
-    @media(max-width tablet)
-      fill white !important
 </style>

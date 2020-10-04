@@ -78,6 +78,7 @@ export default {
       ready: false,
 
       hooperSettings: {
+        transition: 600,
         infiniteScroll: true,
         wheelControl: false,
         itemsToShow: 1.5,
