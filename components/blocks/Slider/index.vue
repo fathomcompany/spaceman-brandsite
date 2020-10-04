@@ -8,7 +8,7 @@ Slider
     :settings="hooperSettings"
     ref="hooper"
   )
-    Slide.slide(v-for="(project, index) in block.projects" :key="index")
+    Slide.slide.cursor-grab(v-for="(project, index) in block.projects" :key="index")
       .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
 
         ResponsiveMedia(
@@ -24,12 +24,14 @@ Slider
           v-if="project.titleListing"
         )
           .max-w-sm
-            MaskedBuildin
-              h3.h15(v-html="replaceNewLines(project.titleListing)")
+            MaskedBuildin.project-title.inline-block
+              nuxt-link.inline-block(:to="`/project/${project.path}`")
+                h3.h15(v-html="replaceNewLines(project.titleListing)")
 
-        a.absolute.inset-0.cursor-pointer(
-          @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
-        )
+        //- a.absolute.inset-0.cursor-pointer(
+        //-   :href="`/project/${project.path}`"
+        //-   @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
+        //- )
 
   //- Previous
   .pagination.prev.cursor-pointer.p-4.left-0.ml-2.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
@@ -128,4 +130,16 @@ export default {
 
   &:active
     transform translateY(-50%) scale(1)
+
+.project-title
+  default-transition transform, time-reg, smooth-in-out
+
+  a
+    default-transition transform, time-reg, smooth-in-out
+
+  a:active
+    transform scale(0.95)
+
+  &:hover
+    transform scale(1.05)
 </style>

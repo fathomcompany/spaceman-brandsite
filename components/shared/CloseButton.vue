@@ -38,8 +38,11 @@ export default {
 .CloseButton
   default-transition transform, time-reg
 
-  +whenActive()
+  &:hover
     transform scale(1.1)
+
+  &:active
+    transform scale(0.9)
 
 .bar
   width 2px
