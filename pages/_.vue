@@ -14,6 +14,8 @@ import { makeMeta } from '~/utils/meta'
 import ScrollDownArrow from '~/components/shared/ScrollDownArrow'
 import Blocks from '~/components/Blocks'
 
+let COMING_FROM_PROJECT = false
+
 export default {
   components: {
     Blocks,
@@ -23,6 +25,11 @@ export default {
   transition: {
     name: 'fade',
     mode: 'out-in'
+  },
+
+  beforeRouteEnter(to, from, next) {
+    if (from.path.includes('/project/')) COMING_FROM_PROJECT = true
+    next()
   },
 
   async asyncData(context) {
@@ -79,6 +86,20 @@ export default {
         this.page.path === '/' ? '' : `/${this.page.path}/`
       }`
     })
+  },
+
+  mounted() {
+    if (!window || typeof window === 'undefined') return
+
+    if (!COMING_FROM_PROJECT) return
+
+    COMING_FROM_PROJECT = false
+
+    try {
+      setTimeout(() => {
+        window.scroll(0, document.getElementsByClassName('Slider')[0].offsetTop)
+      }, 200)
+    } catch (e) {}
   }
 }
 </script>
