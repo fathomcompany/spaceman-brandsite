@@ -115,7 +115,11 @@ export default {
   h6
     @apply mb-6;
 
-
+  a
+    @apply underline;
+    default-transition color, time-fast
+    +whenActive()
+      color theme('colors.purple')
   /**
    REGULAR
    */

@@ -12,7 +12,7 @@ export const getters = {
 
 export const actions = {
   async fetch({ commit }) {
-    const { items } = await getEntries('settings', { include: 1 })
+    const { items } = await getEntries('settings', { include: 4, limit: 1 })
     commit('save', items[0])
   }
 }
