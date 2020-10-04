@@ -11,6 +11,9 @@ ProjectMarquee
     :fill="true"
     background-position="75% center"
   )
+
+  .color-screen.absolute.inset-0.opacity-50.bg-black
+
   .content-wide.relative.top-gutter-huge.bottom-gutter.text-left.w-full
     ContentfulRichText.rich-text(:content="block.content")
 </template>
@@ -36,6 +39,10 @@ export default {
 <style lang="stylus" scoped>
 .ProjectMarquee
   aspect-ratio 2.5/1, true
+
+  .color-screen
+    @media(min-width  (tablet+1px))
+      display none
 
   .rich-text
     max-width 950px
