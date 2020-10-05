@@ -72,7 +72,7 @@ export default {
   computed: {
     // Filter the blocks to those that have been defined.  To fix errors in dev
     // environments after content model is created but commits with the new
-    //  block component have not been pulled down.
+    // block component have not been pulled down.
     createdBlocks() {
       return this.blocks.filter((block) => {
         return keys.includes(block.sys.contentType.sys.id)

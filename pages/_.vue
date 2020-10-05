@@ -95,9 +95,13 @@ export default {
 
     COMING_FROM_PROJECT = false
 
+    const sliderBlocks = document.getElementsByClassName('Slider')
+
+    if (!sliderBlocks || sliderBlocks.length < 1) return
+
     try {
       setTimeout(() => {
-        window.scroll(0, document.getElementsByClassName('Slider')[0].offsetTop)
+        window.scroll(0, sliderBlocks[0].offsetTop)
       }, 200)
     } catch (e) {}
   }

@@ -45,6 +45,7 @@ Slider
 
 <script>
 import { Hooper, Slide } from 'hooper'
+import Cookies from 'js-cookie'
 import get from 'lodash.get'
 
 /*! purgecss start ignore */
@@ -107,10 +108,10 @@ export default {
   mounted() {
     if (!window || typeof window === 'undefined') return
 
-    const initialSlide = localStorage.getItem(this.saveKey) || 0
+    const initialSlide = Cookies.get(this.saveKey) || 0
 
     if (initialSlide !== 0) {
-      this.$refs.hooper.slideTo(initialSlide)
+      this.$refs.hooper.slideTo(parseInt(initialSlide))
     }
 
     // To force the responsive image to be the correct size
@@ -139,7 +140,7 @@ export default {
 
       if (currentSlide < 0) currentSlide = this.slideCount
 
-      localStorage.setItem(this.saveKey, currentSlide)
+      Cookies.set(this.saveKey, currentSlide)
     }
   }
 }
