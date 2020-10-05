@@ -75,6 +75,10 @@ export default {
     // block component have not been pulled down.
     createdBlocks() {
       return this.blocks.filter((block) => {
+        // Skip blocks that aren't published
+        if (!block) return false
+
+        // Esnure that a Vue component is registered for the block type
         return keys.includes(block.sys.contentType.sys.id)
       })
     }
