@@ -76,7 +76,7 @@ export default {
     createdBlocks() {
       return this.blocks.filter((block) => {
         // Skip blocks that aren't published
-        if (!block) return false
+        if (!block || typeof block === 'undefined') return false
 
         // Esnure that a Vue component is registered for the block type
         return keys.includes(block.sys.contentType.sys.id)
