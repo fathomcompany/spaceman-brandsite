@@ -19,8 +19,10 @@ export default {
   mounted() {
     if (!window || typeof window === 'undefined') return
 
-    window.onbeforeunload = function() {
+    window.onbeforeunload = function(event) {
       localStorage.clear()
+      event.preventDefault() // for Firefox
+      event.returnValue = '' // for Chrome
       return ''
     }
   }
