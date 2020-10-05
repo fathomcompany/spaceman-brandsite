@@ -75,16 +75,15 @@ export default {
     // block component have not been pulled down.
     createdBlocks() {
       return this.blocks.filter((block) => {
-        // Skip blocks that aren't published
-        if (!block || typeof block === 'undefined') return false
+        // Try to get hte key of the block type
+        // This will be undefined if the block isn't published
+        const key = get(block, 'sys.contentType.sys.id')
 
         // Esnure that a Vue component is registered for the block type
-        return keys.includes(block.sys.contentType.sys.id)
+        return keys.includes(key)
       })
     }
-  },
-
-  mounted() {}
+  }
 }
 
 /**

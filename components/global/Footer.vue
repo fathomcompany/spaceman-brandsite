@@ -82,7 +82,6 @@ export default {
 
     copyright() {
       const copy = get(this.settings, 'footerCopyrightText', '')
-      console.log('FOOTER COPYRIGHT TEXT:', copy)
       return copy.replace('{year}', this.year)
     }
   }
