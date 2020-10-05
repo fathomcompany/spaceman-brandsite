@@ -21,7 +21,7 @@ GradientHeading
         v-html="line"
         v-in-viewport.once
       )
-      div.bg-clip-text.text-transparent.bg-gradient-to-r.from-orange.via-pink.to-purple(
+      div.bg-clip-text.text-transparent(
         v-if="gradientHeading"
         v-for="(line, index) in gradientHeading"
         v-html="line"
@@ -65,24 +65,35 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
+
+@keyframes whoosh {
+  0% { background-position-x: 0 }
+  100% { background-position-x: 100% }
+}
+
 .GradientHeading
   aspect-ratio 1.5/1, true
 
   @media(max-width tablet)
     aspect-ratio .8/1, true
 
-.heading-container
-  div
-    default-transition opacity transform, 1.9s, smooth-in
-    transform scale(0.8) translateY(80%);
-    opacity 0
+  .heading-container
+    div
+      default-transition opacity transform, 1.9s, smooth-in
+      transform scale(0.8) translateY(80%);
+      opacity 0
 
-    for num in (1..8)
-      &:nth-of-type({num})
-        transition-delay (num * 0.1s)
+      for num in (1..8)
+        &:nth-of-type({num})
+          transition-delay (num * 0.1s)
 
-    &.in-viewport
-      transform none
-      opacity 1
+      &.in-viewport
+        transform none
+        opacity 1
+
+  .bg-clip-text
+    background-size 200%
+    animation whoosh 2s linear infinite
+    background-image linear-gradient(90deg, theme('colors.pink'), theme('colors.purple'), theme('colors.pink'), theme('colors.purple'), theme('colors.pink'))
 </style>
