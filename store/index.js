@@ -9,7 +9,7 @@ export const plugins = [pathify.plugin]
 export const modules = { settings, cache, global }
 
 export const actions = {
-  nuxtServerInit({ dispatch }) {
-    return Promise.all[dispatch('settings/fetch')]
+  async nuxtServerInit({ dispatch }) {
+    await dispatch('settings/fetch')
   }
 }
