@@ -81,8 +81,8 @@ export default {
     },
 
     copyright() {
-      const copy = get(this.settings, 'footerCopyrightText')
-
+      const copy = get(this.settings, 'footerCopyrightText', '')
+      console.log('FOOTER COPYRIGHT TEXT:', copy)
       return copy.replace('{year}', this.year)
     }
   }
@@ -90,11 +90,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@keyframes whoosh {
-    0% { background-position-x: 0 }
-    100% { background-position-x: 100% }
-  }
-
 .GlobalFooter
   background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
