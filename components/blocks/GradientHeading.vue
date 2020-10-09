@@ -21,7 +21,7 @@ GradientHeading
         v-html="line"
         v-in-viewport.once
       )
-      div.bg-clip-text.text-transparent(
+      div.bg-clip-text.text-transparent.gradient-text-backup(
         v-if="gradientHeading"
         v-for="(line, index) in gradientHeading"
         v-html="line"

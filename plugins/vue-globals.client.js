@@ -12,3 +12,9 @@ Vue.directive('in-viewport', inViewportDirective)
 Vue.directive('balance-text', balanceTextDirective)
 
 Vue.use(VueMasonryPlugin)
+
+// Browser detection
+const isIE11 = !!window.MSInputMethodContext && !!document.documentMode
+if (isIE11) {
+  document.getElementById('__nuxt').classList.add('ie11')
+}
