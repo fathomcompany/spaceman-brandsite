@@ -116,6 +116,8 @@ export default {
 
     // To force the responsive image to be the correct size
     setTimeout(() => {
+      if (typeof window.dispatchEvent === 'undefined') return
+
       window.dispatchEvent(new Event('resize'))
       this.ready = true
     }, 200)

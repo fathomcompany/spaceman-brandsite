@@ -60,6 +60,7 @@ export default {
     '~/plugins/window-events.client',
     '~/plugins/image-utils'
   ],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -116,7 +117,13 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+
+    transpile: ['vue-masonry'],
+
+    babel: {
+      plugins: ['@babel/plugin-transform-template-literals']
+    }
   },
 
   generate: {
