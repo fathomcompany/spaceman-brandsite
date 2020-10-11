@@ -17,6 +17,8 @@ import Blocks from '~/components/Blocks'
 let COMING_FROM_PROJECT = false
 
 export default {
+  middleware: 'object-fit',
+
   components: {
     Blocks,
     ScrollDownArrow

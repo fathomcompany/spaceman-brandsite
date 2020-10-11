@@ -15,6 +15,8 @@ import Blocks from '~/components/Blocks'
 import CloseButton from '~/components/shared/CloseButton'
 
 export default {
+  middleware: 'object-fit',
+
   components: { Blocks, CloseButton },
 
   transition: {
