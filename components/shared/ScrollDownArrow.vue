@@ -8,7 +8,7 @@ transition(name='fade')
     v-if="show"
     @click="scrollDown"
   )
-    visual.w-8.transform.w-8.h-5.md_h-8.absolute.inset-0.-rotate-90.translate-x-50p(
+    visual.caret.w-8.transform.w-8.h-5.md_h-8.absolute.inset-0.-rotate-90.translate-x-50p(
       :image="require(`~/assets/image/slider-arrow.png`)"
       background="contain"
       :fill="false"
@@ -54,10 +54,14 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .ScrollDownArrow
   // cursor pointer
   // default-transition transform opacity, time-reg, balanced
   // +whenActive()
   //   transform scale(1.1) translateX(5%)
+
+.ie11 .ScrollDownArrow
+  .caret
+    transform translateX(-50%) rotate(-90deg)
 </style>

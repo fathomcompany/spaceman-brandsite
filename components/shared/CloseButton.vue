@@ -28,3 +28,13 @@ export default {
 .bar
   width 2px
 </style>
+
+<style lang="stylus">
+.ie11 .CloseButton
+  .bar
+    &:nth-of-type(1)
+      transform rotate(45deg)
+
+    &:nth-of-type(2)
+      transform rotate(-45deg)
+</style>

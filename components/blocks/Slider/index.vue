@@ -178,3 +178,9 @@ export default {
   &:hover
     transform scale(1.05)
 </style>
+
+<style lang="stylus">
+.ie11 .Slider
+  .pagination.next img
+    transform rotate(180deg)
+</style>
