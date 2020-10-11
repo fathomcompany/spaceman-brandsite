@@ -123,6 +123,12 @@ export default {
 
     babel: {
       plugins: ['@babel/plugin-transform-template-literals']
+    },
+
+    postcss: {
+      preset: {
+        stage: 3
+      }
     }
   },
 
