@@ -3,9 +3,10 @@ GradientHeading
 -->
 
 <template lang="pug">
-.GradientHeading.relative.text-center
+.GradientHeading.relative.text-center.overflow-hidden
 
-  ResponsiveMedia(
+  ResponsiveMedia.bottom-m10vh(
+    v-parallax="0.2"
     v-if="block.imageBackground || block.videoBackground"
     :image="block.imageBackground"
     :video="block.videoBackground"
