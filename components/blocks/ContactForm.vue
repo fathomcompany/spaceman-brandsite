@@ -3,9 +3,10 @@ ContactForm
 -->
 
 <template lang="pug">
-.ContactForm.bg-cover.bg-center.h-gutter.flex.relative
+.ContactForm.bg-cover.bg-center.h-gutter.flex.relative.overflow-hidden
 
-  ResponsiveMedia.absolute.inset-0(
+  ResponsiveMedia.absolute.inset-0.bottom-m10vh(
+    v-parallax="0.2"
     v-if="block.imageBackground || block.videoBackground"
     background="cover"
     :image="block.imageBackground"
