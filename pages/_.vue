@@ -81,15 +81,6 @@ export default {
     }
   },
 
-  head() {
-    return makeMeta(this.page.seo, {
-      title: this.page.title,
-      canonical: `${process.env.BASE_URL}${
-        this.page.path === '/' ? '' : `/${this.page.path}/`
-      }`
-    })
-  },
-
   mounted() {
     if (!window || typeof window === 'undefined') return
 
@@ -106,6 +97,15 @@ export default {
         window.scroll(0, sliderBlocks[0].offsetTop)
       }, 200)
     } catch (e) {}
+  },
+
+  head() {
+    return makeMeta(this.page.seo, {
+      title: this.page.title,
+      canonical: `${process.env.BASE_URL}${
+        this.page.path === '/' ? '' : `/${this.page.path}/`
+      }`
+    })
   }
 }
 </script>

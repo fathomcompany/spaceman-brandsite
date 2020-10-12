@@ -17,7 +17,7 @@ MobileFirstContent
     :class="{ show: frameContentReady && frameReady }"
   )
 
-    visual.device-video.absolute.origin-top-right(
+    visual.device-video.absolute.origin-top-right.z-1(
       :video="videoSrc"
       :image="imageSrc"
       :alt="imageAlt"
@@ -27,7 +27,7 @@ MobileFirstContent
       @image-loaded="frameContentReady = true"
     )
 
-    visual.absolute.inset-0(
+    visual.absolute.inset-0.z-2(
       background="contain"
       :image="require(`~/assets/image/phone-frame-flat.png`)"
       :fill="true"
