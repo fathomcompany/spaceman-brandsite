@@ -2,16 +2,20 @@
 #main
   Blocks(:blocks='blocks')
 
+  GlobalFooter
+
 </template>
 
 <script>
 import get from 'lodash.get'
 
 import Blocks from '~/components/Blocks'
+import GlobalFooter from '~/components/global/Footer'
 
 export default {
   components: {
-    Blocks
+    Blocks,
+    GlobalFooter
   },
 
   props: {

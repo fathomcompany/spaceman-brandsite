@@ -2,6 +2,8 @@
 .page
   Blocks(:blocks='blocks')
 
+  GlobalFooter
+
   ScrollDownArrow
 </template>
 
@@ -13,6 +15,7 @@ import { makeMeta } from '~/utils/meta'
 
 import ScrollDownArrow from '~/components/shared/ScrollDownArrow'
 import Blocks from '~/components/Blocks'
+import GlobalFooter from '~/components/global/Footer'
 
 let COMING_FROM_PROJECT = false
 
@@ -21,7 +24,8 @@ export default {
 
   components: {
     Blocks,
-    ScrollDownArrow
+    ScrollDownArrow,
+    GlobalFooter
   },
 
   transition: {

@@ -3,6 +3,8 @@
   CloseButton
 
   Blocks(:blocks='blocks')
+
+  GlobalFooter
 </template>
 
 <script>
@@ -13,11 +15,16 @@ import { makeMeta } from '~/utils/meta'
 
 import Blocks from '~/components/Blocks'
 import CloseButton from '~/components/shared/CloseButton'
+import GlobalFooter from '~/components/global/Footer'
 
 export default {
   middleware: 'object-fit',
 
-  components: { Blocks, CloseButton },
+  components: {
+    Blocks,
+    CloseButton,
+    GlobalFooter
+  },
 
   transition: {
     name: 'fade',

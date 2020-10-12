@@ -5,16 +5,14 @@
 
     nuxt
 
-    GlobalFooter
 
 </template>
 
 <script>
 import GlobalHeader from '~/components/global/Header'
-import GlobalFooter from '~/components/global/Footer'
 
 export default {
-  components: { GlobalHeader, GlobalFooter }
+  components: { GlobalHeader }
 }
 </script>
 
