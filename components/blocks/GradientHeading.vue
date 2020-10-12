@@ -6,7 +6,7 @@ GradientHeading
 .GradientHeading.relative.text-center.overflow-hidden
 
   ResponsiveMedia.bottom-m10vh(
-    v-parallax="0.2"
+    v-parallax="0.3"
     v-if="block.imageBackground || block.videoBackground"
     :image="block.imageBackground"
     :video="block.videoBackground"

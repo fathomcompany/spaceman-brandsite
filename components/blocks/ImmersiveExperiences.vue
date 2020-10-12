@@ -3,9 +3,10 @@ ImmersiveExperiences
 -->
 
 <template lang="pug">
-.ImmersiveExperiences.relative
+.ImmersiveExperiences.relative.overflow-hidden
 
-  ResponsiveMedia.absolute.inset-0(
+  ResponsiveMedia.absolute.inset-0.bottom-m10vh(
+    v-parallax="0.2"
     :image="block.imageBackground"
     :fill="true"
     background-position="right center"
@@ -18,7 +19,7 @@ ImmersiveExperiences
 
     .content-wide
       .text-right(:class="{ 'pt-16': !!block.heading }")
-        .background-video.inline-block
+        .background-video.inline-block(v-parallax.absY="0.1")
           .media-container.relative
             ResponsiveMedia.absolute.inset-0(
               :image="block.imageLargeRightImage"
@@ -28,7 +29,7 @@ ImmersiveExperiences
             )
 
       .foreground-video-wrapper
-        .foreground-video.inline-block.relative
+        .foreground-video.inline-block.relative(v-parallax.absY="-0.1")
           .media-container.relative
             ResponsiveMedia.absolute.inset-0(
               :image="block.imageLowerLeftImage"
@@ -74,11 +75,19 @@ export default {
   .media-container
     padding-bottom 100%
 
+.text-right
+  transform translateY(-30%)
+
+  @media(max-width tablet)
+    transform translateY(-50%)
+
 .foreground-video-wrapper
   margin-top -27%
+  transform translateY(50%)
 
   @media(max-width tablet)
     margin-top -12%
+    transform translateY(90%)
 
   .foreground-video
     width 60%
