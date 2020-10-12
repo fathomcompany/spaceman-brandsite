@@ -6,7 +6,7 @@ ContactForm
 .ContactForm.bg-cover.bg-center.h-gutter.flex.relative
 
   ResponsiveMedia.absolute.inset-0(
-    v-if="block.imageBackground"
+    v-if="block.imageBackground || block.videoBackground"
     background="cover"
     :image="block.imageBackground"
     :video="block.videoBackground"
