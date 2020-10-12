@@ -41,6 +41,7 @@
     "vue-balance-text": "^1.2.3",
     "vue-in-viewport-directive": "^2.0.0",
     "vue-masonry": "shershen08/vue-masonry",
+    "vue-parallax-js": "^0.2.3",
     "vue-visual": "^1.0.0",
     "vuex-pathify": "^1.4.1",
     "window-event-mediator": "^0.6.0"

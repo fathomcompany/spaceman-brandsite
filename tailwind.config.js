@@ -47,6 +47,10 @@ module.exports = {
       },
       inset: {
         m1: '-1px',
+        m10vh: '-10vh',
+        m20vh: '-20vh',
+        m10vw: '-10vw',
+        m20vw: '-20vw',
         '50p': '50%'
       },
       zIndex: {

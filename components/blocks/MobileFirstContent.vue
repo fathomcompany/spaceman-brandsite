@@ -121,7 +121,7 @@ mfcBreakpoint = (tablet + 200px)
   transform scale(0.9) rotate(45deg)
   default-transition transform opacity, time-slow, balanced, 0.4s
 
-  @media(max-width tablet)
+  @media(max-width mfcBreakpoint)
     width 57%
     left -16%
     top 21%
