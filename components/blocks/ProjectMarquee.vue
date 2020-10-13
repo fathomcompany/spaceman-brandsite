@@ -5,7 +5,7 @@ ProjectMarquee
 <template lang="pug">
 .ProjectMarquee.relative.h-gutter.text-center.overflow-hidden
   ResponsiveMedia.bottom-m10vh(
-    v-parallax="0.2"
+    v-parallax="-0.1"
     v-if="block.imageDesktop || block.imageMobile"
     :image="block.imageDesktop"
     :mobileImage="block.imageMobile"

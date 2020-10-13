@@ -5,7 +5,15 @@ GlobalFooter
 -->
 
 <template lang="pug">
-footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter
+footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter.relative
+
+  .second-gradient.absolute.inset-0
+
+  visual.noise.opacity-75.md_opacity-100(
+    :image="noiseImage"
+    :fill="true"
+    background="contain"
+  )
 
   .content-wide.flex.justify-between.flex-col-reverse.md_flex-row
     MaskedBuildin.mt-12.md_mt-0(:delay="300")
@@ -59,6 +67,8 @@ import DribbbleIcon from '~/assets/svg/dribbble.svg?inline'
 import PinterestIcon from '~/assets/svg/pinterest.svg?inline'
 import InstagramIcon from '~/assets/svg/instagram.svg?inline'
 
+import NoiseImage from '~/assets/image/noise.png'
+
 export default {
   name: 'GlobalFooter',
 
@@ -68,6 +78,12 @@ export default {
     DribbbleIcon,
     PinterestIcon,
     InstagramIcon
+  },
+
+  data() {
+    return {
+      noiseImage: NoiseImage
+    }
   },
 
   computed: {
@@ -90,11 +106,52 @@ export default {
 
 <style lang="stylus">
 .GlobalFooter
+  .noise
+    .vv-image
+      background-repeat repeat
+
+  @keyframes gradient {
+    0% {
+      opacity 0.5
+      background-position 0% 50%
+    }
+    50% {
+      opacity 0.25
+      background-position 50% 50%
+    }
+    100% {
+      opacity 0.75
+      background-position 100% 50%
+    }
+  }
+
+  @keyframes gradient-one {
+    0% {
+      background-size 100%
+    }
+    50% {
+      background-size 150%
+    }
+    100% {
+      background-size 200%
+    }
+  }
+
+  animation gradient-one 5s ease infinite alternate
   background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
-  @media(max-width tablet)
-    background-image radial-gradient(circle at -21% -25%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+  // @media(max-width tablet)
+  //   background-image radial-gradient(circle at -21% -25%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
+
+  .second-gradient
+    animation gradient 5s ease infinite alternate
+    background-size 200%
+    opacity 0.5
+    background-image radial-gradient(circle at 75% 50%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+
+    // @media(max-width tablet)
+    //   background-image linear-gradient(theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
 
   .socials
     @media(min-width (tablet + 1px))
