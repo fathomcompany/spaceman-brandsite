@@ -9,7 +9,7 @@ Slider
     @slide="handleSlideChange"
     ref="hooper"
   )
-    Slide.slide.cursor-grab(v-for="(project, index) in block.projects" :key="index")
+    Slide.slide(v-for="(project, index) in block.projects" :key="index")
       .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
 
         ResponsiveMedia(
@@ -21,9 +21,13 @@ Slider
 
         .bottom-screen.absolute.inset-0.bg-gradient-to-b.from-transparent.to-black.opacity-50
 
+
         .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
           v-if="project.titleListing"
         )
+
+          nuxt-link.absolute.inset-0(:to="`/project/${project.path}`")
+
           .max-w-sm
             MaskedBuildin.project-title.inline-block
               nuxt-link.inline-block(:to="`/project/${project.path}`")
@@ -79,11 +83,12 @@ export default {
       ready: false,
 
       hooperSettings: {
-        transition: 600,
+        // transition: 600,
         infiniteScroll: true,
         wheelControl: false,
         itemsToShow: 1.5,
         centerMode: true,
+        mouseDrag: false,
         breakpoints: {
           // Above tablet
           767: {
