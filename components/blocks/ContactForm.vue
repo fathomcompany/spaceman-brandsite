@@ -14,7 +14,7 @@ ContactForm
     :fill="true"
   )
 
-  .content.v-gutter.relative
+  .content.v-gutter-small.relative
 
     MaskedBuildin(v-if="block.heading")
       h2.h1.pb-8(v-html="block.heading")
@@ -94,7 +94,11 @@ ContactForm
               p.text-red.mt-8.uppercase.text-bold.text-base.tracking-wider(v-if="formError") The message could not be sent. Please check the fields and try again.
 
       .column.mt-20.md_w-43p.md_mt-0
-        ContentfulRichText(:content="block.sideContent" formatting="contact")
+        ContentfulRichText(
+          :delay="600"
+          :content="block.sideContent"
+          formatting="contact"
+        )
 
 </template>
 
@@ -186,5 +190,5 @@ export default {
 
 <style lang="stylus" scoped>
 .ContactForm
-  aspect-ratio 1.4/1, false
+  aspect-ratio 1.6/1, false
 </style>
