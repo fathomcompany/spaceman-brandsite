@@ -16,47 +16,51 @@ import RichTextRenderer from 'contentful-rich-text-vue-renderer'
 import Contentful from 'bukwild-contentful-utils'
 import { makeSrc } from '~/utils/images'
 
-const renderer = {
-  // Support embedded images
-  [BLOCKS.EMBEDDED_ASSET]: (node, key, h) => {
-    return h('visual', {
-      key,
-      props: {
-        image: makeSrc(node.data.target),
-        aspect: Contentful.aspect(node.data.target) || 16 / 9,
-        alt: node.data.target.fields.title
-      }
-    })
-  },
-  [BLOCKS.PARAGRAPH]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'p-wrapper': true } }, [
-      h('p', { key }, next(node.content, key, h, next))
-    ]),
+const renderer = (delay) => {
+  return {
+    // Support embedded images
+    [BLOCKS.EMBEDDED_ASSET]: (node, key, h) => {
+      return h('visual', {
+        key,
+        props: {
+          image: makeSrc(node.data.target),
+          aspect: Contentful.aspect(node.data.target) || 16 / 9,
+          alt: node.data.target.fields.title
+        }
+      })
+    },
+    [BLOCKS.PARAGRAPH]: (node, key, h, next) =>
+      h(
+        'MaskedBuildin',
+        { key, class: { 'p-wrapper': true }, props: { delay } },
+        [h('p', { key }, next(node.content, key, h, next))]
+      ),
 
-  [BLOCKS.HEADING_1]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h1', { key }, next(node.content, key, h, next))
-    ]),
-  [BLOCKS.HEADING_2]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h2', { key }, next(node.content, key, h, next))
-    ]),
-  [BLOCKS.HEADING_3]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h3', { key }, next(node.content, key, h, next))
-    ]),
-  [BLOCKS.HEADING_4]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h4', { key }, next(node.content, key, h, next))
-    ]),
-  [BLOCKS.HEADING_5]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h5', { key }, next(node.content, key, h, next))
-    ]),
-  [BLOCKS.HEADING_6]: (node, key, h, next) =>
-    h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
-      h('h6', { key }, next(node.content, key, h, next))
-    ])
+    [BLOCKS.HEADING_1]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h1', { key }, next(node.content, key, h, next))
+      ]),
+    [BLOCKS.HEADING_2]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h2', { key }, next(node.content, key, h, next))
+      ]),
+    [BLOCKS.HEADING_3]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h3', { key }, next(node.content, key, h, next))
+      ]),
+    [BLOCKS.HEADING_4]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h4', { key }, next(node.content, key, h, next))
+      ]),
+    [BLOCKS.HEADING_5]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h5', { key }, next(node.content, key, h, next))
+      ]),
+    [BLOCKS.HEADING_6]: (node, key, h, next) =>
+      h('MaskedBuildin', { key, class: { 'h-wrapper': true } }, [
+        h('h6', { key }, next(node.content, key, h, next))
+      ])
+  }
 }
 
 export default {
@@ -74,12 +78,17 @@ export default {
       type: String,
       default: 'regular',
       validator: (val) => ['regular', 'contact'].includes(val)
+    },
+
+    delay: {
+      type: [String, Number],
+      default: 200
     }
   },
 
   data() {
     return {
-      renderer
+      renderer: renderer(this.delay)
     }
   }
 }
