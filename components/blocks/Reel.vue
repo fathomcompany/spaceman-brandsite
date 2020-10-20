@@ -14,7 +14,7 @@ Reel
 
   .content.relative.top-gutter-small.text-black.text-center
     MaskedBuildin(v-if="block.heading")
-      h2.h1(v-html="block.heading")
+      h2.h1.md_whitespace-pre(v-html="block.heading")
 
     .reel-container-parent.pt-12.md_pt-16.pb-12(
       v-if="videoSrc"
