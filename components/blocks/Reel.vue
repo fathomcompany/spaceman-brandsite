@@ -12,11 +12,11 @@ Reel
     :fill="true"
   )
 
-  .content.relative.v-gutter.text-black.text-center
+  .content.relative.top-gutter-small.text-black.text-center
     MaskedBuildin(v-if="block.heading")
       h2.h1(v-html="block.heading")
 
-    .reel-container-parent.pt-12.md_py-20(
+    .reel-container-parent.pt-12.md_pt-16.pb-12(
       v-if="videoSrc"
       v-in-viewport.once
     )
@@ -89,9 +89,9 @@ export default {
         transform none
 
 .reel-video
-  top 0.3%
-  left 0.3%
-  right 0.2%
-  bottom 19.6%
+  top 0.33%
+  left 0.35%
+  right 0.3%
+  bottom 19.75%
   height auto
 </style>
