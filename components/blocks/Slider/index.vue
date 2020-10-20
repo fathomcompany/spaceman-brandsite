@@ -12,7 +12,7 @@ Slider
     Slide.slide(v-for="(project, index) in block.projects" :key="index")
       .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
 
-        ResponsiveMedia(
+        ResponsiveMedia.project-image(
           v-if="project.imageListing"
           :image="project.imageListing"
           :fill="true"
@@ -21,6 +21,7 @@ Slider
 
         .bottom-screen.absolute.inset-0.bg-gradient-to-b.from-transparent.to-black.opacity-50
 
+        .lighten-screen.absolute.inset-0.bg-white
 
         .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
           v-if="project.titleListing"
@@ -160,6 +161,15 @@ export default {
 
 .slide-content
   padding-bottom 160%
+
+.slide
+  &:hover
+    .lighten-screen
+      opacity 0.15
+
+.lighten-screen
+  default-transition opacity, time-slow
+  opacity 0
 
 .pagination
   max-width 50px
