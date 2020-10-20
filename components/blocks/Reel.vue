@@ -25,7 +25,7 @@ Reel
       )
         visual(
           background="contain"
-          :aspect="1663/987"
+          :aspect="1662/1178"
           :image="require(`~/assets/image/television-frame.png`)"
           @image-loaded="frameReady = true"
         )
@@ -89,9 +89,9 @@ export default {
         transform none
 
 .reel-video
-  top 1.75%
-  left 1%
-  right @left
-  bottom 5.5%
+  top 0.3%
+  left 0.3%
+  right 0.2%
+  bottom 19.6%
   height auto
 </style>
