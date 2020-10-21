@@ -14,7 +14,7 @@ ContactForm
     :fill="true"
   )
 
-  .content.v-gutter-small.relative
+  .content.top-gutter-small.bottom-gutter-huge.relative
 
     MaskedBuildin(v-if="block.heading")
       h2.h1.pb-8(v-html="block.heading")
@@ -190,5 +190,5 @@ export default {
 
 <style lang="stylus" scoped>
 .ContactForm
-  aspect-ratio 1.6/1, false
+  aspect-ratio (16/9), false
 </style>
