@@ -150,7 +150,7 @@ export default {
     animation gradient 5s ease infinite alternate
     background-size 200%
     opacity 0.5
-    background-image radial-gradient(circle at 75% 50%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+    background-image radial-gradient(circle at 75% 50%, theme('colors.lightpurple'), theme('colors.purple'), theme('colors.lightpurple'), theme('colors.red'), theme('colors.purple'))
 
     // @media(max-width tablet)
     //   background-image linear-gradient(theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
