@@ -4,7 +4,6 @@ MaskedBuildin
 
 <template lang="pug">
 .MaskedBuildin(
-  v-if="introFinished"
   v-in-viewport.once
   :class="{ 'overflow-hidden' : !allowOverflow, 'md_inset-0 md_absolute': fill }"
 )
@@ -43,11 +42,6 @@ export default {
     fill: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    introFinished() {
-      return this.$store.state.global.introFinished
     }
   }
 }

@@ -3,12 +3,10 @@ GlobalHeader
 -->
 
 <template lang="pug">
-header.GlobalHeader.fixed.flex.justify-center.items-center.pointer-events-none.user-select-none(
-  :class="[state]"
+header.GlobalHeader.flex.justify-center.items-center.pointer-events-none.user-select-none(
+  :class="[state, position, { animheight: isPage }]"
 )
   .bottom-screen.absolute.inset-x-0.top-0.bg-gradient-to-b.frtoom-transparent.from-black.opacity-50.h-20.pointer-events-none
-
-  .cover-screen.bg-black.absolute.inset-0.origin-top
 
   .content-wide.text-center.tracking-widest.pt-5.md_pt-8.mx-0
     h1.ml-2
@@ -21,14 +19,24 @@ export default {
 
   data() {
     return {
-      state: 'ready',
-      timeoutID: null
+      state: 'dontshow',
+      timeoutID: null,
+      position: this.isPage ? 'absolute' : 'fixed',
+      hasBeenAnimated: false
+    }
+  },
+
+  computed: {
+    isPage() {
+      return !this.$route.path.includes('/project/')
     }
   },
 
   mounted() {
     if (!window || typeof window === 'undefined') return
-    this.timeoutID = setTimeout(this.setIntro, 100)
+
+    this.$win.on('scroll', this.onScroll, { throttle: 1 })
+    this.timeoutID = setTimeout(this.setReady, 1000)
   },
 
   destroyed() {
@@ -37,13 +45,18 @@ export default {
 
   methods: {
     setReady() {
-      this.state = 'ready'
-      this.timeoutID = setTimeout(this.setIntro, 3000)
+      if (!this.isPage) {
+        this.state = 'default'
+        return
+      } else {
+        this.state = 'ready'
+      }
+      this.timeoutID = setTimeout(this.setIntro, 100)
     },
     setIntro() {
       this.state = 'intro'
 
-      this.timeoutID = setTimeout(this.reset, 2000)
+      // this.timeoutID = setTimeout(this.reset, 2000)
     },
     reset() {
       this.state = 'default'
@@ -52,6 +65,18 @@ export default {
 
       // if (process.env.NODE_ENV === 'development')
       //   this.timeoutID = setTimeout(this.setReady, 2000)
+    },
+
+    onScroll() {
+      if (window.scrollY > 0) {
+        this.position = 'fixed'
+
+        if (!this.hasBeenAnimated) {
+          this.hasBeenAnimated = true
+          this.state = 'default'
+          this.$win.off('scroll', this.onScroll)
+        }
+      }
     }
   }
 }
@@ -59,9 +84,16 @@ export default {
 
 <style lang="stylus" scoped>
 .GlobalHeader
-  default-transition height z-index, 1.1s, balanced
   @apply top-0 inset-x-0 h-12;
   z-index 49
+  default-transition z-index opacity, 1.1s, balanced
+
+  &.dontshow
+    default-transition opacity, time-reg, balanced
+    opacity 0
+
+  &.default
+    default-transition height z-index opacity, 1.1s, balanced
 
   &.initial,
   &.ready,
@@ -78,10 +110,6 @@ export default {
       &:nth-of-type({num})
         default-transition opacity transform, 1s, balanced
 
-  .cover-screen
-    default-transition transform, 1.2s, balanced
-    // opacity 0.5
-
   // PRE BUILD IN
   &.ready
     z-index 51
@@ -95,7 +123,6 @@ export default {
 
     span
       opacity 0
-      // transform translateY(5px)
 
   // BUILD IN
   &.intro
@@ -113,8 +140,6 @@ export default {
         transform none
 
   &.default
-    .cover-screen
-      transform scaleY(0)
 
     h1
       transition letter-spacing 1s smooth-in-out, font-size 1s smooth-in

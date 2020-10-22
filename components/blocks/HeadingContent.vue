@@ -59,7 +59,6 @@ export default {
 
       if (!this.$refs.content) return 0
 
-      console.log(this.$refs.content.aspect)
       return `${(1 / this.$refs.content.aspect) * 100}%`
     }
   },
