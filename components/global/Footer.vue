@@ -5,7 +5,7 @@ GlobalFooter
 -->
 
 <template lang="pug">
-footer.GlobalFooter.pt-24.pb-12.md_py-10.h-gutter.relative
+footer.GlobalFooter.pt-12.pb-12.md_py-10.h-gutter.relative
 
   .second-gradient.absolute.inset-0
 
@@ -138,7 +138,9 @@ export default {
   }
 
   animation gradient-one 5s ease infinite alternate
-  background-image radial-gradient(circle at 19% -13%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
+  background-image radial-gradient(circle at 19% -13%,
+    theme('colors.lightpurple'), theme('colors.purple'), theme('colors.pink'), theme('colors.red'),
+    theme('colors.lightpurple'))
 
   // @media(max-width tablet)
   //   background-image radial-gradient(circle at -21% -25%, theme('colors.green'), theme('colors.lime'), theme('colors.pink'), theme('colors.red'), theme('colors.purple'))
