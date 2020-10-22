@@ -85,10 +85,13 @@ ContactForm
                 :disabled="xhrStarted"
               )
             div.pt-6
-              button(
-                type="submit"
-                :disabled="xhrStarted"
-              ) Send
+              .button-wrapper.relative.inline-block
+                visual(:fill="true" video="/video/gradient.mp4" autoplay loop muted playsinline)
+
+                button(
+                  type="submit"
+                  :disabled="xhrStarted"
+                ) Send
 
             transition(name="fade-up")
               p.text-red.mt-8.uppercase.text-bold.text-base.tracking-wider(v-if="formError") The message could not be sent. Please check the fields and try again.
@@ -191,4 +194,14 @@ export default {
 <style lang="stylus" scoped>
 .ContactForm
   aspect-ratio (16/9), false
+
+.button-wrapper
+  border-radius 15px
+  overflow hidden
+  default-transition transform box-shadow, time-reg
+  box-shadow 0 0 0 transparent
+
+  +whenActive()
+    transform translateY(-3px)
+    box-shadow 0 3px 10px rgba(white,0.3)
 </style>
