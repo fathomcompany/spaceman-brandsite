@@ -16,17 +16,17 @@ GradientHeading
 
   .content-wide.h-gutter.relative.pb-10.md_pb-16.w-full
     h2.h0.heading-container
-      div(
+      div.line(
         v-if="plainHeading"
         v-for="(line, index) in plainHeading"
         v-html="line"
         v-in-viewport.once
       )
-      div.bg-clip-text.text-transparent.gradient-text-backup(
+      div.line.bg-clip-text.text-transparent.gradient-text-backup.relative(
         v-if="gradientHeading"
         v-for="(line, index) in gradientHeading"
-        v-html="line"
         v-in-viewport.once
+        v-html="line"
       )
 
 </template>
@@ -69,8 +69,8 @@ export default {
 <style lang="stylus">
 
 @keyframes whoosh {
-  0% { background-position-x: 0 }
-  100% { background-position-x: 100% }
+  0% { background-position-x: 0; background-position-y: 0; }
+  100% { background-position-x: 100%; background-position-y: 0; }
 }
 
 .GradientHeading
@@ -80,7 +80,7 @@ export default {
     aspect-ratio .8/1, true
 
   .heading-container
-    div
+    .line
       default-transition opacity transform, 1.9s, smooth-in
       transform scale(0.8) translateY(80%);
       opacity 0
@@ -95,6 +95,9 @@ export default {
 
   .bg-clip-text
     background-size 200%
-    animation whoosh 2s linear infinite
-    background-image linear-gradient(90deg, theme('colors.pink'), theme('colors.purple'), theme('colors.pink'), theme('colors.purple'), theme('colors.pink'))
+    animation whoosh 4s linear infinite
+    background-image linear-gradient(90deg,
+      theme('colors.pink'), theme('colors.purple'), theme('colors.red'), theme('colors.green'),
+      theme('colors.pink'), theme('colors.purple'), theme('colors.red'), theme('colors.green'),
+      theme('colors.pink'))
 </style>
