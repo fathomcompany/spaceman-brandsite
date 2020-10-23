@@ -37,6 +37,7 @@ export default {
 
     this.$win.on('scroll', this.onScroll, { throttle: 1 })
     this.timeoutID = setTimeout(this.setReady, 1000)
+    this.onScroll()
   },
 
   destroyed() {
@@ -72,6 +73,7 @@ export default {
         this.position = 'fixed'
 
         if (!this.hasBeenAnimated) {
+          clearInterval(this.timeoutID)
           this.hasBeenAnimated = true
           this.state = 'default'
           this.$win.off('scroll', this.onScroll)
