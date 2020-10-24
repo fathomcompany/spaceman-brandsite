@@ -5,21 +5,23 @@ ScrollDownArrow
 <template lang="pug">
 transition(name='fade')
   .ScrollDownArrow.fixed.bottom-0.left-50p.py-2.origin-center(
-    v-if="show"
+    v-show="show"
     @click="scrollDown"
   )
-    visual.caret.w-8.transform.w-8.h-5.md_h-8.absolute.inset-0.-rotate-90.translate-x-50p(
-      :image="require(`~/assets/image/slider-arrow.png`)"
-      background="contain"
-      :fill="false"
-    )
+    .canvas-container.relative.transform.translate-x-50p
+      ArrowCanvas
+
 </template>
 
 <script>
+import ArrowCanvas from '~/components/shared/ArrowCanvas'
+
 const SCROLL_PERCENT_THRESHOLD = 0.95
 
 export default {
   name: 'ScrollDownArrow',
+
+  components: { ArrowCanvas },
 
   data() {
     return {
@@ -60,6 +62,14 @@ export default {
   // default-transition transform opacity, time-reg, balanced
   // +whenActive()
   //   transform scale(1.1) translateX(5%)
+
+  .canvas-container
+    width 50px
+    height 70px
+
+    @media(max-width tablet)
+      width 50px *0.75
+      height 70px * 0.75
 
 .ie11 .ScrollDownArrow
   .caret
