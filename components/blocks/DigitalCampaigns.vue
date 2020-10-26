@@ -107,16 +107,16 @@ export default {
 .phone-frame
   padding-bottom 57%
   width 25%
-  left 15%
-  top 7%
+  left 14%
+  top 3%
   opacity 0
   transform translateX(-10%)
   default-transition transform opacity, time-slow, balanced, 0.2s
 
   @media(max-width tablet)
     width 30%
-    left 2%
-    top 16%
+    left 1%
+    top 14%
 
   .device-video
     position absolute
