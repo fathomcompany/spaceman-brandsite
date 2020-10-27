@@ -20,22 +20,25 @@ MediaGrid
       )
         .item-wrapper.relative
           .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden
-            ResponsiveMedia(
-              :image='asset.image',
-              :video='asset.video',
-              :fill='true'
+            Asset(
+              :asset="asset"
+              :key="index"
+              :index="index"
+              :active="activeIndex == index"
+              v-on:setActive="onActiveSet"
             )
 </template>
 
 <script>
-import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
+// import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
+import Asset from './Asset'
 
 const LAYOUTS = ['square', 'tall', 'wide']
 
 export default {
   name: 'MediaGrid',
 
-  components: { ResponsiveMedia },
+  components: { Asset },
 
   props: {
     block: {
@@ -44,9 +47,20 @@ export default {
     }
   },
 
+  data() {
+    return {
+      activeIndex: -1
+    }
+  },
+
   methods: {
     getRandom() {
       return LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)]
+    },
+
+    onActiveSet(index) {
+      console.log('setting active:', index)
+      this.activeIndex = index
     }
   }
 }
