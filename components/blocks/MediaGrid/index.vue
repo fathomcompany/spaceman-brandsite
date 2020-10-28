@@ -6,8 +6,9 @@ MediaGrid
 .MediaGrid.bg-offblack.h-gutter.py-8.md_py-12.xl_py-20
   .content-wide.relative
     .flex.flex-wrap
-      .item.Square(
+      .item(
         v-for='(asset, index) in block.assets',
+        :class='[block.layout || "Square"]'
       )
         .item-wrapper.relative
           .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden
@@ -69,7 +70,10 @@ gap = (20px / 2.5)
 .media-container
   margin gap
 
-.item
+/**
+ * SQUARE
+ */
+.item.Square
   .item-wrapper
     padding-bottom 'calc(100% - %s)' % (gap / 2)
 
@@ -81,4 +85,13 @@ gap = (20px / 2.5)
 
   @media (max-width mobile-landscape)
     width 100%
+
+/**
+ * WIDE
+ */
+.item.Wide
+  width 100%
+
+  .item-wrapper
+    padding-bottom 'calc(56.25% - %s)' % (gap / 2)
 </style>
