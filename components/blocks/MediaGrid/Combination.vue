@@ -7,8 +7,8 @@ MediaGrid
   .content-wide.relative
     .flex.flex-wrap
       .item(
-        v-for='(asset, index) in assets',
-        :class='[getAssetAspect(asset)]'
+        v-for='(asset, index) in block.assets',
+        :class='[block.layout || "Square"]'
       )
         .item-wrapper.relative
           .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden
@@ -23,6 +23,7 @@ MediaGrid
 
 <script>
 import get from 'lodash.get'
+
 import Asset from './Asset'
 
 const LAYOUTS = ['square', 'tall', 'wide']
@@ -48,12 +49,6 @@ export default {
   computed: {
     type() {
       return get(this, 'block.sys.contentType.sys.id')
-    },
-
-    assets() {
-      if (this.type === 'blockMediaGridCombination')
-        return [{ layout: 'Square' }, { layout: 'wide' }]
-      else return this.block.assets
     }
   },
 
@@ -64,12 +59,6 @@ export default {
 
     onActiveSet(index) {
       this.activeIndex = index
-    },
-
-    getAssetAspect(asset) {
-      if (this.type === 'blockMediaGridCombination') return 'Wide'
-
-      return this.block.layout || 'Square'
     }
   }
 }

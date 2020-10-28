@@ -46,7 +46,8 @@ const blocks = {
   blockGradientHeading: GradientHeading,
   blockMarquee: Marquee,
   blockProjectMarquee: ProjectMarquee,
-  blockMediaGrid: MediaGrid
+  blockMediaGrid: MediaGrid,
+  blockMediaGridCombination: MediaGrid
 }
 
 // Export just the list of keys

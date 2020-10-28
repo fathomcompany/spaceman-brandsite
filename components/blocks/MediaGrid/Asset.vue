@@ -90,7 +90,6 @@ export default {
       // Can't play a video that isn't set
       if (!this.videoSrc) return
 
-      console.log('clicked')
       this.$emit('setActive', this.index)
     }
   }
