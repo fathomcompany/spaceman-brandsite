@@ -22,7 +22,6 @@ MediaGrid
 </template>
 
 <script>
-// import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 import Asset from './Asset'
 
 const LAYOUTS = ['square', 'tall', 'wide']

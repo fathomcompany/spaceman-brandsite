@@ -15,7 +15,8 @@ MediaGridAsset
   )
 
   .lighten-screen.absolute.inset-0.flex.justify-center.items-center(v-if="videoSrc")
-    span.text-white.play-icon.text-4xl ►
+    PlayButton.text-white.play-icon.text-4xl
+
 
   visual.video(
     ref="video"
@@ -34,8 +35,12 @@ MediaGridAsset
 import get from 'lodash.get'
 import { makeSrc } from '~/utils/images'
 
+import PlayButton from '~/assets/svg/play-button.svg?inline'
+
 export default {
   name: 'MediaGridAsset',
+
+  components: { PlayButton },
 
   props: {
     asset: {
@@ -105,7 +110,10 @@ export default {
     background-color transparent
 
   .play-icon
-    default-transition transform, time-slow
+    default-transition transform, time-reg
+    width 50px
+    path
+      fill white
 
   &.has-video
     &:hover
@@ -113,7 +121,7 @@ export default {
         background-color rgba(white, 0.15)
 
       .play-icon
-        transform scale(1.2)
+        transform scale(1.1)
 
   &.active
     .video
