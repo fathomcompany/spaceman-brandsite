@@ -94,4 +94,20 @@ gap = (20px / 2.5)
 
   .item-wrapper
     padding-bottom 'calc(56.25% - %s)' % (gap / 2)
+
+/**
+ * TALL
+ */
+.item.Tall
+  @media (min-width (tablet-landscape + 1px))
+    width 33.3333%
+
+  @media(max-width tablet-landscape)
+    width 50%
+
+  @media (max-width mobile-landscape)
+    width 100%
+
+  .item-wrapper
+    padding-bottom 'calc(177.78% - %s)' % (gap / 2)
 </style>
