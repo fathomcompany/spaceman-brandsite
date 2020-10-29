@@ -5,10 +5,11 @@ MediaGrid
 <template lang="pug">
 .MediaGrid.bg-offblack.h-gutter.py-8.md_py-12.xl_py-20
   .content-wide.relative
-    .flex.flex-wrap
+    .listing-container.clearfix(
+    )
       .item(
-        v-for='(asset, index) in assets',
-        :class='[getAssetAspect(asset)]'
+        v-for='(asset, index) in block.assets',
+        :class='[getAspect(asset)]'
       )
         .item-wrapper.relative
           .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden
@@ -23,6 +24,7 @@ MediaGrid
 
 <script>
 import get from 'lodash.get'
+// import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 import Asset from './Asset'
 
 const LAYOUTS = ['square', 'tall', 'wide']
@@ -45,31 +47,26 @@ export default {
     }
   },
 
-  computed: {
-    type() {
-      return get(this, 'block.sys.contentType.sys.id')
-    },
-
-    assets() {
-      if (this.type === 'blockMediaGridCombination')
-        return [{ layout: 'Square' }, { layout: 'wide' }]
-      else return this.block.assets
-    }
-  },
-
   methods: {
     getRandom() {
       return LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)]
     },
 
     onActiveSet(index) {
+      console.log('setting active:', index)
       this.activeIndex = index
     },
 
-    getAssetAspect(asset) {
-      if (this.type === 'blockMediaGridCombination') return 'Wide'
-
-      return this.block.layout || 'Square'
+    getAspect(asset) {
+      const type = get(asset, 'sys.contentType.sys.id')
+      switch (type) {
+        case 'mediaAssetTall':
+          return 'Tall'
+        case 'mediaAssetWide':
+          return 'Wide'
+        default:
+          return 'Square'
+      }
     }
   }
 }
@@ -79,53 +76,50 @@ export default {
 gap = (20px / 2.5)
 
 .MediaGrid
-  //
+  .content-wide
+    width 'calc(100% + %s)' % gap
 
-.content-wide
-  width 'calc(100% + %s)' % gap
-  margin-left (gap / -2)
+  .listing-container
+    margin-left (gap / -2)
 
-.media-container
-  margin gap
+  .media-container
+    margin gap
 
-/**
- * SQUARE
- */
-.item.Square
-  .item-wrapper
-    padding-bottom 'calc(100% - %s)' % (gap / 2)
+  .item
+    float left
+    @media (max-width tablet)
+      width 100%
 
-  @media (min-width (tablet-landscape + 1px))
-    width 33.3333%
+  .item.Tall
+    @media (min-width (tablet + 1px))
+      width 33.3333%
 
-  @media(max-width tablet-landscape)
-    width 50%
+      .item-wrapper
+        padding-bottom 'calc(177.78% - %s)' % gap
 
-  @media (max-width mobile-landscape)
-    width 100%
+    @media (max-width tablet)
+      .item-wrapper
+        padding-bottom 200%
 
-/**
- * WIDE
- */
-.item.Wide
-  width 100%
+  .item.Square
+    @media (min-width (tablet + 1px))
+      width 33.3333%
 
-  .item-wrapper
-    padding-bottom 'calc(56.25% - %s)' % (gap / 2)
+      .item-wrapper
+        padding-bottom 'calc(100% - %s)' % (gap / 2)
 
-/**
- * TALL
- */
-.item.Tall
-  @media (min-width (tablet-landscape + 1px))
-    width 33.3333%
+    @media (max-width tablet)
+      .item-wrapper
+        padding-bottom 100%
 
-  @media(max-width tablet-landscape)
-    width 50%
+  .item.Wide
+    @media (min-width (tablet + 1px))
+      width 100%
 
-  @media (max-width mobile-landscape)
-    width 100%
+      .item-wrapper
+        padding-bottom 'calc(56.25% - %s)' % (gap / 2)
 
-  .item-wrapper
-    padding-bottom 'calc(177.78% - %s)' % (gap / 2)
+    @media (max-width tablet)
+      .item-wrapper
+        padding-bottom 56.25%
 </style>
