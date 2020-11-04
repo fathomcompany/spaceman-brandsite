@@ -26,6 +26,7 @@ MediaGridAsset
     load="visible"
     :autoplay="false"
     :muted="false"
+    playsinline
     loop
     controls
   )

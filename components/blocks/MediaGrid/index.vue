@@ -53,7 +53,6 @@ export default {
     },
 
     onActiveSet(index) {
-      console.log('setting active:', index)
       this.activeIndex = index
     },
 
