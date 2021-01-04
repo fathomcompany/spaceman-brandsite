@@ -113,8 +113,6 @@ export default {
 
 <style lang="stylus">
 .MediaGridAsset
-  .image
-    // z-index 1
 
   .video
     opacity 0
@@ -125,7 +123,6 @@ export default {
   .lighten-screen
     default-transition background-color, time-slow
     background-color transparent
-    // z-index 2
 
   .play-icon
     default-transition transform, time-reg

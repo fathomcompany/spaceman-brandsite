@@ -61,9 +61,6 @@ export default {
 
   watch: {
     shouldPlay(nv, ov) {
-      // eslint-disable-next-line no-console
-      console.log(nv)
-
       if (nv) this.playVideo()
       else this.pauseVideo()
     }
@@ -73,13 +70,10 @@ export default {
     this.initPlayer()
   },
 
-  destroyed() {
+  beforeDestroy() {
     if (this.player) {
       this.player.destroy()
       this.player = null
-      // eslint-disable-next-line no-console
-      console.log(`${this.playerID} div`)
-      this.$el.querySelector(`${this.playerID} div`).remove()
     }
   },
 
