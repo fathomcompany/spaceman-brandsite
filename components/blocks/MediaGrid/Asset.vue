@@ -102,9 +102,6 @@ export default {
       // Can't play a video that isn't set
       if (!this.videoSrc) return
 
-      // eslint-disable-next-line no-console
-      console.log('CLICKED', this.index)
-
       this.$emit('setActive', this.index)
     }
   }
