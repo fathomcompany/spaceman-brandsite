@@ -14,7 +14,7 @@ MediaGridAsset
     :fill="true"
   )
 
-  .lighten-screen.absolute.inset-0.flex.justify-center.items-center(v-if="videoSrc")
+  .lighten-screen.absolute.inset-0.flex.justify-center.items-center(v-if="videoSrc || vimeoUrl")
     PlayButton.text-white.play-icon.text-4xl
 
   visual.video(
