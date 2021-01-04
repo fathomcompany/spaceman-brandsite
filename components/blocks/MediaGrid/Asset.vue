@@ -17,7 +17,6 @@ MediaGridAsset
   .lighten-screen.absolute.inset-0.flex.justify-center.items-center(v-if="videoSrc")
     PlayButton.text-white.play-icon.text-4xl
 
-
   visual.video(
     ref="video"
     v-if="videoSrc"
@@ -30,6 +29,11 @@ MediaGridAsset
     loop
     controls
   )
+
+  VimeoPlayer(
+    v-if='vimeoUrl'
+    :url='vimeoUrl'
+  )
 </template>
 
 <script>
@@ -37,11 +41,12 @@ import get from 'lodash.get'
 import { makeSrc } from '~/utils/images'
 
 import PlayButton from '~/assets/svg/play-button.svg?inline'
+import VimeoPlayer from '~/components/shared/VimeoPlayer'
 
 export default {
   name: 'MediaGridAsset',
 
-  components: { PlayButton },
+  components: { PlayButton, VimeoPlayer },
 
   props: {
     asset: {
@@ -74,6 +79,10 @@ export default {
 
     imageAlt() {
       return this.$imgAlt(this.image)
+    },
+
+    vimeoUrl() {
+      return get(this.asset, 'vimeoUrl')
     }
   },
 

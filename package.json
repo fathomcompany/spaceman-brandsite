@@ -20,6 +20,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/svg": "^0.1.12",
     "@sendgrid/mail": "^7.2.6",
+    "@vimeo/player": "^2.14.1",
     "bukwild-contentful-utils": "^3.2.0",
     "bukwild-stylus-library": "^2.1.3",
     "contentful-rich-text-vue-renderer": "^1.1.5",
