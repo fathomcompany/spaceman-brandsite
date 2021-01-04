@@ -19,7 +19,7 @@ MediaGridAsset
 
   visual.video(
     ref="video"
-    v-if="videoSrc"
+    v-if="videoSrc && !vimeoUrl"
     :video="videoSrc"
     :fill="true"
     load="visible"
@@ -30,9 +30,11 @@ MediaGridAsset
     controls
   )
 
-  VimeoPlayer(
+  VimeoPlayer.video(
     v-if='vimeoUrl'
     :url='vimeoUrl'
+    :shouldPlay="active"
+    :playerID="'grid-'+index"
   )
 </template>
 
@@ -100,23 +102,30 @@ export default {
       // Can't play a video that isn't set
       if (!this.videoSrc) return
 
+      // eslint-disable-next-line no-console
+      console.log('CLICKED', this.index)
+
       this.$emit('setActive', this.index)
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 .MediaGridAsset
+  .image
+    // z-index 1
 
   .video
     opacity 0
     pointer-events none
     default-transition opacity, time-reg
+    width calc(100% + 1px) !important
 
   .lighten-screen
     default-transition background-color, time-slow
     background-color transparent
+    // z-index 2
 
   .play-icon
     default-transition transform, time-reg

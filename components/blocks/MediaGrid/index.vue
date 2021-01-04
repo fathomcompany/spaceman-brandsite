@@ -10,6 +10,7 @@ MediaGrid
       .item(
         v-for='(asset, index) in block.assets',
         :class='[getAspect(asset)]'
+        v-if="asset.vimeoUrl || asset.videoSrc || asset.image"
       )
         .item-wrapper.relative
           .media-container.absolute.inset-0.flex.justify-center.items-center.bg-black.overflow-hidden

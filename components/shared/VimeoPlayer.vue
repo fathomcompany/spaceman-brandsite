@@ -3,7 +3,7 @@ The vimeo modal
 -->
 
 <template lang="pug">
-.conference-video__vimeo-container(
+.VimeoPlayer(
   :id="playerID",
   :class="{ show: videoReady }"
 )
@@ -23,6 +23,11 @@ export default {
       }
     },
 
+    shouldPlay: {
+      type: Boolean,
+      default: false
+    },
+
     autoplay: {
       type: Boolean,
       default: false
@@ -30,7 +35,7 @@ export default {
 
     controls: {
       type: Boolean,
-      default: false
+      default: true
     },
 
     loop: {
@@ -51,6 +56,16 @@ export default {
     return {
       player: null,
       videoReady: false
+    }
+  },
+
+  watch: {
+    shouldPlay(nv, ov) {
+      // eslint-disable-next-line no-console
+      console.log(nv)
+
+      if (nv) this.playVideo()
+      else this.pauseVideo()
     }
   },
 
@@ -93,7 +108,10 @@ export default {
         controls: this.controls,
         autoplay: this.autoplay,
         loop: this.loop,
-        responsive: true
+        responsive: true,
+        byline: false,
+        portrait: false,
+        title: false
       })
 
       this.player.on('loaded', this.onVideoLoaded)
@@ -118,12 +136,20 @@ export default {
 
 <!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-<style lang="stylus" scoped>
-.conference-video__vimeo-container
+<style lang="stylus">
+.VimeoPlayer
   expand()
-  z-index 2
+  z-index 0
   opacity 0
   transition opacity 0.5s 1s ease
+
+  > div
+    padding-top 100% !important
+    width calc(100% + 2px)
+    left -1px
+
+  iframe
+    object-fit cover
 
   &.show
     opacity 1
