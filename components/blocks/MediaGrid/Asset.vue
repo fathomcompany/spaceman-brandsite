@@ -102,7 +102,7 @@ export default {
   methods: {
     onClick() {
       // Can't play a video that isn't set
-      if (!this.videoSrc) return
+      if (!this.videoSrc && !this.vimeoUrl) return
 
       this.$emit('setActive', this.index)
     }
