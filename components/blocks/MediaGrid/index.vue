@@ -94,32 +94,20 @@ gap = (20px / 2.5)
     @media (min-width (tablet + 1px))
       width 33.3333%
 
-      .item-wrapper
-        padding-bottom 'calc(177.78% - %s)' % (gap * 1.5)
-
-    @media (max-width tablet)
-      .item-wrapper
-        padding-bottom 200%
+    .item-wrapper
+      padding-bottom 'calc(177.78% - %s)' % (gap * 1.5)
 
   .item.Square
     @media (min-width (tablet + 1px))
       width 33.3333%
 
-      .item-wrapper
-        padding-bottom 'calc(100% - %s)' % 0px
-
-    @media (max-width tablet)
-      .item-wrapper
-        padding-bottom 100%
+    .item-wrapper
+      padding-bottom 'calc(100% - %s)' % 0px
 
   .item.Wide
     @media (min-width (tablet + 1px))
       width 100%
 
-      .item-wrapper
-        padding-bottom 'calc(56.25% - %s)' % (-1 * gap)
-
-    @media (max-width tablet)
-      .item-wrapper
-        padding-bottom 56.25%
+    .item-wrapper
+      padding-bottom 'calc(56.25% - %s)' % (-1 * gap)
 </style>
