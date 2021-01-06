@@ -139,7 +139,7 @@ export default {
   transition opacity 0.5s 1s ease
 
   > div
-    padding-top 100% !important
+    // padding-top 100% !important
     width calc(100% + 2px)
     left -1px
 
