@@ -5,7 +5,7 @@ MediaGridAsset
 <template lang="pug">
 .MediaGridAsset.absolute.inset-0(
   @click="onClick"
-  :class="{ active, 'cursor-pointer has-video': !!videoSrc }"
+  :class="{ active, 'cursor-pointer has-video': (videoSrc || vimeoUrl) }"
 )
   visual.image(
     v-if="image"
@@ -14,7 +14,9 @@ MediaGridAsset
     :fill="true"
   )
 
-  .lighten-screen.absolute.inset-0.flex.justify-center.items-center(v-if="videoSrc || vimeoUrl")
+  .lighten-screen.absolute.inset-0.flex.justify-center.items-center(
+    v-if="videoSrc || vimeoUrl"
+  )
     PlayButton.text-white.play-icon.text-4xl
 
   visual.video(
