@@ -95,7 +95,7 @@ gap = (20px / 2.5)
       width 33.3333%
 
       .item-wrapper
-        padding-bottom 'calc(177.78% - %s)' % gap
+        padding-bottom 'calc(177.78% - %s)' % (gap * 1.5)
 
     @media (max-width tablet)
       .item-wrapper
@@ -106,7 +106,7 @@ gap = (20px / 2.5)
       width 33.3333%
 
       .item-wrapper
-        padding-bottom 'calc(100% - %s)' % (gap / 2)
+        padding-bottom 'calc(100% - %s)' % 0px
 
     @media (max-width tablet)
       .item-wrapper
@@ -117,7 +117,7 @@ gap = (20px / 2.5)
       width 100%
 
       .item-wrapper
-        padding-bottom 'calc(56.25% - %s)' % (gap / 2)
+        padding-bottom 'calc(56.25% - %s)' % 0px
 
     @media (max-width tablet)
       .item-wrapper

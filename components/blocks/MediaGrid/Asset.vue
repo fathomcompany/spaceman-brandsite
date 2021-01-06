@@ -111,7 +111,11 @@ export default {
 </script>
 
 <style lang="stylus">
+
 .MediaGridAsset
+  .image
+    .vv-fill
+      right -1px !important
 
   .video
     opacity 0
