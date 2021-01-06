@@ -105,7 +105,8 @@ export default {
         responsive: true,
         byline: false,
         portrait: false,
-        title: false
+        title: false,
+        referrer: process.env.BASE_URL
       })
 
       this.player.on('loaded', this.onVideoLoaded)
