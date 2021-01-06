@@ -117,7 +117,7 @@ gap = (20px / 2.5)
       width 100%
 
       .item-wrapper
-        padding-bottom 'calc(56.25% - %s)' % 0px
+        padding-bottom 'calc(56.25% - %s)' % (-1 * gap)
 
     @media (max-width tablet)
       .item-wrapper
