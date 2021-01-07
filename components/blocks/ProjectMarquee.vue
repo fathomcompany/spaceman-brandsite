@@ -41,9 +41,9 @@ export default {
 .ProjectMarquee
   aspect-ratio 2.5/1, true
 
-  .color-screen
-    @media(min-width  (tablet+1px))
-      display none
+  // .color-screen
+  //   @media(min-width  (tablet+1px))
+  //     display none
 
   .rich-text
     max-width 950px
