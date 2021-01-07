@@ -120,7 +120,7 @@ export default {
   .video
     opacity 0
     pointer-events none
-    default-transition opacity, time-reg
+    default-transition opacity, time-reg, smooth-in, 0.4s
     width calc(100% + 1px) !important
 
   .lighten-screen
@@ -128,7 +128,7 @@ export default {
     background-color transparent
 
   .play-icon
-    default-transition transform, time-reg
+    default-transition transform opacity, time-reg
     width 50px
     path
       fill white
@@ -142,6 +142,10 @@ export default {
         transform scale(1.1)
 
   &.active
+    .play-icon
+      transform scale(0.5) !important
+      opacity 0
+
     .video
       opacity 1
       pointer-events all
