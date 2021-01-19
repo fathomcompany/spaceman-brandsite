@@ -26,7 +26,7 @@ export const makeSrc = (image) => {
   for (let i = 0; i < IMAGE_SIZES.length; i++) {
     srcSet[IMAGE_SIZES[i]] = contentful.img(
       image,
-      IMAGE_SIZES[i] * pixelDensity,
+      Math.ceil(IMAGE_SIZES[i] * pixelDensity),
       null,
       {
         format
