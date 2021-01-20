@@ -84,7 +84,6 @@ export default {
       ready: false,
 
       hooperSettings: {
-        // transition: 600,
         infiniteScroll: true,
         wheelControl: false,
         itemsToShow: 1.5,
@@ -94,7 +93,9 @@ export default {
           // Above tablet
           767: {
             itemsToShow: 3,
-            centerMode: false
+            centerMode: false,
+            itemsToSlide: 3,
+            transition: 900
           }
         }
       }
