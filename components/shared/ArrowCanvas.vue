@@ -8,7 +8,7 @@ canvas.ArrowCanvas.absolute.inset-0.w-full.h-full(v-show="introLoaded")
 
 <script>
 const FRAME_WIDTH = 50
-const NUMBER_OF_FRAMES = 35
+// const NUMBER_OF_FRAMES = 35
 const GLITCH_FRAME = 30
 const FPS = 1000 / 12
 
@@ -82,13 +82,13 @@ export default {
         if (this.frame === GLITCH_FRAME) this.isGlitching = true
       } else {
         this.frame++
-        if (this.frame > NUMBER_OF_FRAMES) {
-          this.frame = GLITCH_FRAME
+        if (this.frame > GLITCH_FRAME) {
+          // this.frame = GLITCH_FRAME
           this.nextGlitch = true
-          this.timeoutID = setTimeout(
-            this.resetGlitch,
-            500 + Math.random() * 1500
-          )
+          // this.timeoutID = setTimeout(
+          //   this.resetGlitch,
+          //   500 + Math.random() * 1500
+          // )
         }
       }
 
