@@ -65,8 +65,13 @@ export default {
 .ImmersiveExperiences
   .v-gutter.w-full
     @media(max-width tablet)
-      padding-top 50px
+      padding-top 40px
       padding-bottom @padding-top
+
+    @media(min-width tablet + 1px)
+      margin-bottom -50px
+      padding-top 40px
+      padding-bottom 0
 
   &:before
     vertical-align top
@@ -81,14 +86,14 @@ export default {
     padding-bottom 100%
 
 .text-right
-  transform translateY(-17%)
+  transform translateY(-22%)
 
   @media(max-width tablet)
     transform translateY(-25%)
 
 .foreground-video-wrapper
   margin-top -27%
-  transform translateY(40%)
+  transform translateY(-38%)
 
   @media(max-width tablet)
     margin-top -12%
