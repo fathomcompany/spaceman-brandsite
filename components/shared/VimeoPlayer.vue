@@ -143,8 +143,9 @@ export default {
     width calc(100% + 2px)
     left -1px
 
-  // iframe
-  //   object-fit cover
+  iframe
+    width calc(100% + 1px) !important
+    height calc(100% + 1px) !important
 
   &.show
     opacity 1
