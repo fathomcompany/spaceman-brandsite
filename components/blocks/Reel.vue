@@ -89,9 +89,11 @@ export default {
         transform none
 
 .reel-video
-  top 0.33%
+  top 0.6%
   left 0.35%
   right 0.3%
-  bottom 19.75%
+  bottom 19.3%
   height auto
+  width auto !important
+  height @width
 </style>

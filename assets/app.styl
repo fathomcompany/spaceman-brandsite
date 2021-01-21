@@ -28,7 +28,15 @@ img
 // Make sure video covers entire container
 .vv-fill-asset
   object-fit cover
-  height calc(100% + 1px) !important
+  height calc(100% + 2px) !important
+  width @height
+
+.vv-fill
+  left -1px
+  right @left
+  bottom @left
+  top @left
+  height calc(100% + 2px) !important
   width @height
 
 /**

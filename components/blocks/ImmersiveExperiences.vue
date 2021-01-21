@@ -69,9 +69,9 @@ export default {
       padding-bottom @padding-top
 
     @media(min-width tablet + 1px)
-      margin-bottom -50px
+      // margin-bottom -50px
       padding-top 40px
-      padding-bottom 0
+      padding-bottom 40px
 
   &:before
     vertical-align top
@@ -93,14 +93,14 @@ export default {
 
 .foreground-video-wrapper
   margin-top -27%
-  transform translateY(-38%)
+  transform translateY(-45%)
 
   @media(max-width tablet)
     margin-top -12%
     transform translateY(40%)
 
   .foreground-video
-    width 55%
+    width 45%
     box-shadow 0 20px 80px rgba(black, 0.5)
     z-index 1
 

@@ -48,6 +48,7 @@ module.exports = {
       },
       inset: {
         m1: '-1px',
+        m5vh: '-5vh',
         m10vh: '-10vh',
         m20vh: '-20vh',
         m10vw: '-10vw',

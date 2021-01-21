@@ -103,11 +103,11 @@ mfcBreakpoint = (tablet + 200px)
   max-width 550px
   width 35%
   padding-right 8%
-  padding-top 5%
+  padding-top 2.5%
 
   @media(max-width mfcBreakpoint)
     width 50%
-    padding-top 12%
+    padding-top 6%
 
   @media(max-width mobile)
     width 55%

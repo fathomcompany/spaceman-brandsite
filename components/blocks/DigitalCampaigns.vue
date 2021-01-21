@@ -84,7 +84,7 @@ export default {
 
 <style lang="stylus" scoped>
 .DigitalCampaigns
-  aspect-ratio 1.4/1, false
+  aspect-ratio 1.5/1, false
 
   @media(max-width tablet)
     aspect-ratio 1/1, false
@@ -98,17 +98,17 @@ export default {
 .content-container
   width 60%
   padding-right 8%
-  padding-top 8%
+  padding-top 4%
 
   @media(max-width tablet)
     width 60%
-    padding-top 12%
+    padding-top 6%
 
 .phone-frame
   padding-bottom 57%
   width 25%
   left 14%
-  top 3%
+  top -1%
   opacity 0
   transform translateX(-10%)
   default-transition transform opacity, time-slow, balanced, 0.2s
