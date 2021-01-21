@@ -13,8 +13,11 @@ The vimeo modal
 
 <script>
 import Player from '@vimeo/player'
+import InViewPortMixin from 'vue-in-viewport-mixin'
 
 export default {
+  mixins: [InViewPortMixin],
+
   props: {
     playerID: {
       type: String,
@@ -55,7 +58,8 @@ export default {
   data() {
     return {
       player: null,
-      videoReady: false
+      videoReady: false,
+      hasBeenInViewport: false
     }
   },
 
@@ -63,11 +67,15 @@ export default {
     shouldPlay(nv, ov) {
       if (nv) this.playVideo()
       else this.pauseVideo()
-    }
-  },
+    },
 
-  mounted() {
-    this.initPlayer()
+    'inViewport.now'(isVisible) {
+      if (this.hasBeenInViewport || !isVisible) return
+      console.log('Initting player')
+      this.hasBeenInViewport = true
+
+      this.initPlayer()
+    }
   },
 
   beforeDestroy() {

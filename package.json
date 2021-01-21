@@ -41,6 +41,7 @@
     "stylus-loader": "^3.0.2",
     "vue-balance-text": "^1.2.3",
     "vue-in-viewport-directive": "^2.0.0",
+    "vue-in-viewport-mixin": "^2.0.1",
     "vue-masonry": "shershen08/vue-masonry",
     "vue-parallax-js": "^0.2.3",
     "vue-visual": "^1.0.0",

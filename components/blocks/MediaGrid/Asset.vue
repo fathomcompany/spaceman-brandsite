@@ -37,6 +37,7 @@ MediaGridAsset
     :url='vimeoUrl'
     :shouldPlay="active"
     :playerID="'grid-'+index"
+    in-viewport-root-margin='100% 0%'
   )
 </template>
 

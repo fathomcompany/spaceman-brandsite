@@ -9792,6 +9792,11 @@ vue-in-viewport-mixin@^2.0.0:
   resolved "https://registry.yarnpkg.com/vue-in-viewport-mixin/-/vue-in-viewport-mixin-2.0.0.tgz#696058b06608cfe777cc37c30321d71b11746f55"
   integrity sha512-crTph/eA7Sub2rzCnHiCuEXrpEfFSqahCxrv2wtFkMBRtwjVUkN9knHMiYvcciVewxXyOvIRUzMAiSKImUGgsg==
 
+vue-in-viewport-mixin@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-in-viewport-mixin/-/vue-in-viewport-mixin-2.0.1.tgz#43d9d959e5d3a83663b13425c3d920459cd95349"
+  integrity sha512-OJgSvHiDwMgBLtpX22ta1FPZM/5VCir6+qlYkKOU0ZIzBk6+Qh25cPzuPPQ/Q2kLjDJOEDQvYlnNpqmTZf8HZA==
+
 vue-loader@^15.9.3:
   version "15.9.3"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.9.3.tgz#0de35d9e555d3ed53969516cac5ce25531299dda"
