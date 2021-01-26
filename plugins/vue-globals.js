@@ -1,8 +1,8 @@
 import 'custom-event-polyfill'
 
 import Vue from 'vue'
-// import VueVisual from '~/components/shared/Visual'
-import VueVisual from 'vue-visual'
+import VueVisual from '~/components/shared/Visual'
+// import VueVisual from 'vue-visual'
 import MaskedBuildin from '~/components/shared/MaskedBuildin'
 import 'vue-visual/index.css'
 
