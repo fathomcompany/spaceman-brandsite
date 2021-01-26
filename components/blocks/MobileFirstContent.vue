@@ -22,7 +22,7 @@ MobileFirstContent
       :mobileVideo="block.videoMobile"
       :image="block.imageDevice"
       :fill="true"
-      @video-loaded="frameContentReady = true"
+      @video-loading="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
 
