@@ -13,7 +13,7 @@ MobileFirstContent
   )
 
   .phone-frame.absolute(
-    v-if="videoSrc || imageSrc"
+    v-if="block.videoDevice || block.imageDevice"
     :class="{ show: frameContentReady && frameReady }"
   )
 
@@ -28,7 +28,7 @@ MobileFirstContent
 
     visual.absolute.inset-0.z-2(
       background="contain"
-      :image="require(`~/assets/image/phone-frame-flat-dark-ui-2.png`)"
+      :image="deviceFrameImage"
       :fill="true"
       @image-loaded="frameReady = true"
     )
@@ -40,7 +40,6 @@ MobileFirstContent
 
 <script>
 import get from 'lodash.get'
-import { makeSrc } from '~/utils/images'
 
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
@@ -59,25 +58,16 @@ export default {
   data() {
     return {
       frameContentReady: false,
-      frameReady: false
+      frameReady: false,
+      defaultDeviceFrame: require(`~/assets/image/phone-frame-flat-dark-ui-2.png`)
     }
   },
 
   computed: {
-    videoSrc() {
-      return get(this, 'block.videoDevice.fields.file.url')
-    },
-
-    image() {
-      return get(this, 'block.imageDevice')
-    },
-
-    imageSrc() {
-      return makeSrc(this.image)
-    },
-
-    imageAlt() {
-      return this.$imgAlt(this.image)
+    deviceFrameImage() {
+      const fromContentful = get(this.block, 'imageDeviceFrame.fields.file.url')
+      if (fromContentful) return fromContentful
+      else return this.defaultDeviceFrame
     }
   }
 }
