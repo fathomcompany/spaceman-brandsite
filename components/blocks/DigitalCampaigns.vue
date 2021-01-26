@@ -22,7 +22,7 @@ DigitalCampaigns
       :image="block.imageDevice"
       background="cover"
       :fill="true"
-      @video-loaded="frameContentReady = true"
+      @video-loading="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
 
