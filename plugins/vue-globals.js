@@ -1,7 +1,8 @@
 import 'custom-event-polyfill'
 
 import Vue from 'vue'
-import VueVisual from '~/components/shared/Visual'
+// import VueVisual from '~/components/shared/Visual'
+import VueVisual from 'vue-visual'
 import MaskedBuildin from '~/components/shared/MaskedBuildin'
 import 'vue-visual/index.css'
 
@@ -11,7 +12,7 @@ Vue.component('visual', VueVisual).options.setDefaults({
   autoplay: 'visible',
   loadPoster: true,
   transition: 'vv-fade',
-  inViewportRootMargin: '2000px 0%'
+  inViewportRootMargin: '1000px 0%'
 })
 
 Vue.component('MaskedBuildin', MaskedBuildin)
