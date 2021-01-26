@@ -100,7 +100,11 @@ export default {
   &.initial,
   &.ready,
   &.intro
-    @apply h-screen;
+    @media(min-width tablet + 1px)
+      @apply h-screen;
+
+    @media(max-width tablet)
+      height 80vh
 
 
   // TRANSITIONS
