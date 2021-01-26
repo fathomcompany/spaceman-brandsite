@@ -100,7 +100,7 @@ export default {
   height @width
 
   @media(max-width tablet)
-    bottom 18.5%
+    bottom 19.25%
     left 0.66%
     right 0.6%
     top 1%
