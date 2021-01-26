@@ -112,7 +112,8 @@ module.exports = {
         '90p': '90%',
         '95p': '95%',
         '100p': '100%',
-        'half-screen': '50vw'
+        'half-screen': '50vw',
+        '100vw': '100vw'
       },
       height: {
         '50p': '50%'

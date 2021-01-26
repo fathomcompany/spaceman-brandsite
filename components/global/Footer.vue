@@ -5,7 +5,7 @@ GlobalFooter
 -->
 
 <template lang="pug">
-footer.GlobalFooter.pt-12.pb-12.md_py-10.h-gutter.relative
+footer.GlobalFooter.pt-12.pb-12.md_py-10.h-gutter.relative.w-100vw.overflow-hidden
 
   .second-gradient.absolute.inset-0
 
