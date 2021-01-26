@@ -322,7 +322,7 @@ module.exports = /******/ (function(modules) {
                               controls: _vm.controls,
                               loop: _vm.loop,
                               playsinline: '',
-                              preload: 'auto',
+                              preload: 'metadata',
                               'aria-label': _vm.alt
                             },
                             domProps: { muted: _vm.muted }
