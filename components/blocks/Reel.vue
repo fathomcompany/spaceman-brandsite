@@ -36,7 +36,7 @@ Reel
           :mobileVideo="block.videoMobile"
           background="cover"
           :fill="true"
-          @video-loading="frameVideoReady = true"
+          @image-loaded="frameVideoReady = true"
         )
 </template>
 
