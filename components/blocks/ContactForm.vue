@@ -158,10 +158,6 @@ export default {
     }
   },
 
-  mounted() {
-    console.log(this.endpoint)
-  },
-
   methods: {
     async handleSubmit(e) {
       // Don't allow double posting

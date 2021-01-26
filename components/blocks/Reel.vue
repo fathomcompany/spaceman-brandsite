@@ -36,6 +36,9 @@ Reel
           :loop="true"
           :muted="true"
           :fill="true"
+          autoplay="visible"
+          autopause="visible"
+          load='visible'
           @video-loaded="frameVideoReady = true"
         )
 </template>

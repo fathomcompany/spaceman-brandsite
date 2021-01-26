@@ -21,7 +21,10 @@ DigitalCampaigns
       :image="imageSrc"
       :alt="imageAlt"
       background="cover"
-      loop autoplay muted
+      loop muted
+      autoplay="visible"
+      autopause="visible"
+      load='visible'
       @video-loaded="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )

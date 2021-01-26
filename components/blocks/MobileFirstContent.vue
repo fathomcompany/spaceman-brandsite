@@ -22,7 +22,10 @@ MobileFirstContent
       :image="imageSrc"
       :alt="imageAlt"
       background="cover"
-      loop autoplay muted
+      autoplay="visible"
+      autopause="visible"
+      load='visible'
+      loop muted
       @video-loaded="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
