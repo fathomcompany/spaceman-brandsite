@@ -17,7 +17,7 @@ Reel
       h2.h1.md_whitespace-pre(v-html="block.heading")
 
     .reel-container-parent.pt-12.md_pt-16.pb-12(
-      v-if="videoSrc"
+      v-if="block.videoInsideTelevision"
       v-in-viewport.once
     )
       .reel-container.relative(
@@ -30,21 +30,16 @@ Reel
           @image-loaded="frameReady = true"
         )
 
-        visual.reel-video.absolute.origin-top-right(
-          :video="videoSrc"
+        ResponsiveMedia.reel-video.absolute.origin-top-right(
+          :video="block.videoInsideTelevision"
+          :mobileVideo="block.videoMobile"
           background="cover"
           :fill="true"
-          autoplay="visible"
-          autopause="visible"
-          load='visible'
-          playsinline loop muted
           @video-loaded="frameVideoReady = true"
         )
 </template>
 
 <script>
-import get from 'lodash.get'
-
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
 export default {
@@ -63,12 +58,6 @@ export default {
     return {
       frameVideoReady: false,
       frameReady: false
-    }
-  },
-
-  computed: {
-    videoSrc() {
-      return get(this, 'block.videoInsideTelevision.fields.file.url')
     }
   }
 }

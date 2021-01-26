@@ -20,6 +20,8 @@ ResponsiveMedia
     autopause="visible"
     load='visible'
     playsinline loop muted
+    @video-loaded="onVideoLoaded"
+    @image-loaded="onImageLoaded"
   )
 </template>
 
@@ -136,6 +138,14 @@ export default {
   methods: {
     onResize(e) {
       this.isMobile = window.innerWidth < 768
+    },
+
+    onVideoLoaded() {
+      this.$emit('video-loaded')
+    },
+
+    onImageLoaded() {
+      this.$emit('image-loaded')
     }
   }
 }
