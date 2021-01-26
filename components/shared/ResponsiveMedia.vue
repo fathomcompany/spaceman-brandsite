@@ -21,6 +21,7 @@ ResponsiveMedia
     load='visible'
     playsinline loop muted
     @video-loaded="onVideoLoaded"
+    @video-loading="onVideoLoading"
     @image-loaded="onImageLoaded"
   )
 </template>
@@ -141,7 +142,13 @@ export default {
     },
 
     onVideoLoaded() {
+      console.log('video loaded')
       this.$emit('video-loaded')
+    },
+
+    onVideoLoading() {
+      console.log('video loading')
+      this.$emit('video-loading')
     },
 
     onImageLoaded() {

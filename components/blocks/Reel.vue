@@ -31,11 +31,12 @@ Reel
         )
 
         ResponsiveMedia.reel-video.absolute.origin-top-right(
+          :image="block.imageVideoPlaceholder"
           :video="block.videoInsideTelevision"
           :mobileVideo="block.videoMobile"
           background="cover"
           :fill="true"
-          @video-loaded="frameVideoReady = true"
+          @video-loading="frameVideoReady = true"
         )
 </template>
 
