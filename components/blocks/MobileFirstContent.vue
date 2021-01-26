@@ -130,18 +130,19 @@ mfcBreakpoint = (tablet + 200px)
     top 21%
     padding-bottom 98%
 
-  .device-video
-    position absolute
-    left 9%
-    right 24%
-    top 5%
-    bottom 14%
-    border-radius 7%
-    overflow hidden
+.device-video
+  position absolute
+  left 9%
+  right 23%
+  top 5%
+  bottom 14%
+  border-radius 7%
+  overflow hidden
 
-    @media(max-width tablet)
-      // width 57%
-      // left -16%
-      // top 21%
-      // padding-bottom 98%
+  @media(max-width tablet)
+    top 3%
+    // width 57%
+    // left -16%
+    // top 21%
+    // padding-bottom 98%
 </style>

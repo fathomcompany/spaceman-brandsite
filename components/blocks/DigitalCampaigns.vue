@@ -123,15 +123,17 @@ export default {
 
   .device-video
     position absolute
-    left 32%
-    right 7%
-    top 12%
-    bottom 32%
-    transform skewY(-25deg)
+    left 35%
+    right 6%
+    top 16%
+    bottom 25%
+    transform skewY(-26deg)
+    transform-origin center center
     border-bottom-left-radius 15%
     overflow hidden
 
     @media(max-width tablet)
-      top 2%
-      bottom 28%
+      top 9%
+      bottom 19%
+      right 3%
 </style>
