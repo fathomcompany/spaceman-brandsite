@@ -21,7 +21,7 @@ DigitalCampaigns
       :image="imageSrc"
       :alt="imageAlt"
       background="cover"
-      loop muted
+      loop muted playsinline
       autoplay="visible"
       autopause="visible"
       load='visible'

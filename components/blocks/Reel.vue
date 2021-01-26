@@ -33,12 +33,11 @@ Reel
         visual.reel-video.absolute.origin-top-right(
           :video="videoSrc"
           background="cover"
-          :loop="true"
-          :muted="true"
           :fill="true"
           autoplay="visible"
           autopause="visible"
           load='visible'
+          playsinline loop muted
           @video-loaded="frameVideoReady = true"
         )
 </template>

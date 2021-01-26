@@ -25,7 +25,7 @@ MobileFirstContent
       autoplay="visible"
       autopause="visible"
       load='visible'
-      loop muted
+      loop muted playsinline
       @video-loaded="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
