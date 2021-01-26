@@ -17,15 +17,11 @@ MobileFirstContent
     :class="{ show: frameContentReady && frameReady }"
   )
 
-    visual.device-video.absolute.origin-top-right.z-1(
-      :video="videoSrc"
-      :image="imageSrc"
-      :alt="imageAlt"
-      background="cover"
-      autoplay="visible"
-      autopause="visible"
-      load='visible'
-      loop muted playsinline
+    ResponsiveMedia.device-video.absolute.origin-top-right.z-1(
+      :video="block.videoDevice"
+      :mobileVideo="block.videoMobile"
+      :image="block.imageDevice"
+      :fill="true"
       @video-loaded="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
@@ -135,12 +131,13 @@ mfcBreakpoint = (tablet + 200px)
   left 9%
   right 23%
   top 5%
-  bottom 14%
+  bottom 13%
   border-radius 7%
   overflow hidden
 
   @media(max-width tablet)
     top 3%
+    right 22%
     // width 57%
     // left -16%
     // top 21%
