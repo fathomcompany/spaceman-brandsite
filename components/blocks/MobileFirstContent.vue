@@ -32,7 +32,7 @@ MobileFirstContent
 
     visual.absolute.inset-0.z-2(
       background="contain"
-      :image="require(`~/assets/image/phone-frame-flat.png`)"
+      :image="require(`~/assets/image/phone-frame-flat-dark-ui-2.png`)"
       :fill="true"
       @image-loaded="frameReady = true"
     )
