@@ -12,19 +12,16 @@ DigitalCampaigns
   )
 
   .phone-frame.absolute(
-    v-if="videoSrc || imageSrc"
+    v-if="block.videoDevice || block.imageDevice"
     :class="{ show: frameContentReady && frameReady }"
   )
 
-    visual.device-video.absolute.origin-top-right(
-      :video="videoSrc"
-      :image="imageSrc"
-      :alt="imageAlt"
+    ResponsiveMedia.device-video.absolute.origin-top-right(
+      :video="block.videoDevice"
+      :mobileVideo="block.videoMobile"
+      :image="block.imageDevice"
       background="cover"
-      loop muted playsinline
-      autoplay="visible"
-      autopause="visible"
-      load='visible'
+      :fill="true"
       @video-loaded="frameContentReady = true"
       @image-loaded="frameContentReady = true"
     )
@@ -42,8 +39,6 @@ DigitalCampaigns
 </template>
 
 <script>
-import get from 'lodash.get'
-import { makeSrc } from '~/utils/images'
 import ResponsiveMedia from '~/components/shared/ResponsiveMedia'
 
 export default {
@@ -62,24 +57,6 @@ export default {
     return {
       frameContentReady: false,
       frameReady: false
-    }
-  },
-
-  computed: {
-    videoSrc() {
-      return get(this, 'block.videoDevice.fields.file.url')
-    },
-
-    image() {
-      return get(this, 'block.imageDevice')
-    },
-
-    imageSrc() {
-      return makeSrc(this.image)
-    },
-
-    imageAlt() {
-      return this.$imgAlt(this.image)
     }
   }
 }
@@ -124,7 +101,7 @@ export default {
   .device-video
     position absolute
     left 35%
-    right 6%
+    right 5%
     top 16%
     bottom 25%
     transform skewY(-26deg)
@@ -135,5 +112,5 @@ export default {
     @media(max-width tablet)
       top 9%
       bottom 19%
-      right 3%
+      right 4%
 </style>
