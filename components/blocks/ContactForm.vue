@@ -85,7 +85,7 @@ ContactForm
                 :disabled="xhrStarted"
               )
             div.pt-6
-              .button-wrapper.relative.inline-block
+              .button-wrapper.relative.inline-block.bg-red
                 visual(:fill="true" video="/video/gradient.mp4" autoplay loop muted playsinline)
 
                 button(
