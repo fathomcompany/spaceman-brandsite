@@ -26,7 +26,7 @@ export default {
 
     delay: {
       type: [String, Number],
-      default: 200
+      default: 100
     },
 
     animation: {
