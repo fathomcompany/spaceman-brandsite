@@ -1,6 +1,6 @@
 # SPACEMAN Media Brand Site
 
-## Build Setup
+## Build Setup.
 
 ```bash
 # install dependencies
