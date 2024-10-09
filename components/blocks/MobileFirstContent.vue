@@ -34,7 +34,10 @@ MobileFirstContent
     )
 
   .content-container.absolute.top-0.right-0
-    MaskedBuildin(v-if="block.heading")
+    MaskedBuildin(
+      v-if="block.heading"
+      :allowOverflow="true"
+    )
       h2.h1(v-html="block.heading")
 </template>
 

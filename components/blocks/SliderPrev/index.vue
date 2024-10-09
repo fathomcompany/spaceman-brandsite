@@ -3,36 +3,49 @@ Slider
 -->
 
 <template lang="pug">
-.Slider.relative.grid.grid-cols-2.md_grid-cols-3.xl_grid-cols-4(v-if="block.projects && block.projects.length")
-  .slide(v-for="(project, index) in block.projects" :key="index")
-    .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
+.Slider.relative(v-if="block.projects && block.projects.length")
+  Hooper(
+    :settings="hooperSettings"
+    @slide="handleSlideChange"
+    ref="hooper"
+  )
+    Slide.slide(v-for="(project, index) in block.projects" :key="index")
+      .slide-content.bg-cover.bg-center.relative.overflow-hidden.bg-offblack
 
-      ResponsiveMedia.project-image(
-        v-if="project.imageListing"
-        :image="project.imageListing"
-        :fill="true"
-        background="cover"
-      )
+        ResponsiveMedia.project-image(
+          v-if="project.imageListing"
+          :image="project.imageListing"
+          :fill="true"
+          background="cover"
+        )
 
-      .bottom-screen.absolute.inset-0.bg-gradient-to-b.from-transparent.to-black.opacity-50
+        .bottom-screen.absolute.inset-0.bg-gradient-to-b.from-transparent.to-black.opacity-50
 
-      .lighten-screen.absolute.inset-0.bg-white
+        .lighten-screen.absolute.inset-0.bg-white
 
-      .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
-        v-if="project.titleListing"
-      )
+        .absolute.inset-0.flex.items-end.justify-center.p-8.md_p-12.text-center(
+          v-if="project.titleListing"
+        )
 
-        nuxt-link.absolute.inset-0(:to="`/project/${project.path}`")
+          nuxt-link.absolute.inset-0(:to="`/project/${project.path}`")
 
-        .max-w-sm
-          MaskedBuildin.project-title.inline-block
-            nuxt-link.inline-block(:to="`/project/${project.path}`")
-              h3.h2.md_h15(v-html="replaceNewLines(project.titleListing)")
+          .max-w-sm
+            MaskedBuildin.project-title.inline-block
+              nuxt-link.inline-block(:to="`/project/${project.path}`")
+                h3.h15(v-html="replaceNewLines(project.titleListing)")
 
-      //- a.absolute.inset-0.cursor-pointer(
-      //-   :href="`/project/${project.path}`"
-      //-   @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
-      //- )
+        //- a.absolute.inset-0.cursor-pointer(
+        //-   :href="`/project/${project.path}`"
+        //-   @click.stop.prevent="onLinkClick(`/project/${project.path}`)"
+        //- )
+
+  //- Previous
+  .pagination.prev.cursor-pointer.p-4.left-0.ml-2.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slidePrev()")
+    img(src="~assets/image/slider-arrow.png")
+
+  //- Next
+  .pagination.next.cursor-pointer.p-4.right-0.mr-2.select-none.absolute.transform.translate-y-minus50p.top-50p(@click="$refs.hooper.slideNext()")
+    img.transform.origin-center.rotate-180(src="~assets/image/slider-arrow.png")
 </template>
 
 <script>
@@ -143,6 +156,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.hooper
+  outline none
+  height auto !important
+
 .slide-content
   padding-bottom 160%
 
@@ -176,4 +193,10 @@ export default {
 
   &:hover
     transform scale(1.05)
+</style>
+
+<style lang="stylus">
+.ie11 .Slider
+  .pagination.next img
+    transform rotate(180deg)
 </style>
